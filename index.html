@@ -272,229 +272,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2018/04/25/贪心算法解决背包问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫丹丹">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="闫丹丹的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/04/25/贪心算法解决背包问题/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T20:56:35+08:00">
-                2018-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#include “stdafx.h”</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#define MAXSIZE 10 //假设物体总数</p>
-<p>#define M 20 //背包的容量</p>
-<p>//算法核心，贪心算法<br>void GREEDY(float dzw[], float x[], int sortResult[], int n)<br>{</p>
-<pre><code>float BCaption = M;
-int i = 0;
-int temp = 0;
-for (i = 0; i &lt; n; i++)//准备输出结果
-{
-    x[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    temp = sortResult[i];//得到取物体的顺序
-    if (dzw[temp] &gt; BCaption ) break;
-
-    x[temp] = 1;//若合适则取出
-    BCaption -= dzw[temp];//背包容量改变
-}
-if (i &lt;= n)//使背包充满
-{
-    x[temp] = BCaption  / dzw[temp];
-}
-return;
-</code></pre><p>}</p>
-<p>void sort(float tempArray[], int sortResult[], int n)<br>{</p>
-<pre><code>int i = 0, j = 0;
-int index = 0, k = 0;
-for (i = 0; i &lt; n; i++)//对映射数组赋初值0
-{
-    sortResult[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    float temp = tempArray[i];
-    index = i;
-    //找到最大的效益并保存此时的下标
-    for (j = 0; j &lt; n; j++)
-    {
-        if ((temp &lt; tempArray[j]) &amp;&amp; (sortResult[j] == 0))
-        {
-            temp = tempArray[j];
-            index = j;
-        }
-    }
-    if (sortResult[index] == 0)
-    {
-        sortResult[index] = ++k;
-    }
-}
-//修改效益最低的sortResult[i]标记
-for (i = 0; i &lt; n; i++)
-{
-    if (sortResult[i] == 0)
-    {
-        sortResult[i] = ++k;
-    }
-}
-return;
-</code></pre><p>}<br>//得到本算法的所有输入信息<br>void getData(float djz[], float dzw[], int *n)<br>{</p>
-<pre><code>int i = 0;
-printf(&quot;请输入物品的种类个数: &quot;);
-scanf(&quot;%d&quot;, n);
-printf(&quot;请输入各物品种类的单位价值 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-    {
-        scanf(&quot;%f&quot;, &amp;djz[i]);
-    }
-printf(&quot;请输入各物品种类的重量 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-{
-    scanf(&quot;%f&quot;, &amp;dzw[i]);//输入各种类的各个总重量
-}
-return;
-</code></pre><p>}</p>
-<p>void output(float x[], int n)<br>{</p>
-<pre><code>int i;
-printf(&quot;\n\nafter arithmetic data: advise method\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;x[%d]\t&quot;, i);
-}
-printf(&quot;\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;%2.3f\t&quot;, x[i]);
-}
-return;
-</code></pre><p>}<br>int main()<br>{</p>
-<pre><code>float djz[MAXSIZE], dzw[MAXSIZE], x[MAXSIZE];
-int i = 0, n = 0;
-int sortResult[MAXSIZE];
-getData(djz, dzw, &amp;n);
-for (i = 0; i &lt; n; i++)
-{
-    x[i] = djz[i] / dzw[i];
-}
-sort(x, sortResult, n);
-GREEDY(dzw, x, sortResult, n);
-output(x, n);
-system(&quot;pause&quot;);
-</code></pre><p>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2018/04/24/index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1257,90 +1034,24 @@ system(&quot;pause&quot;);
           
             <p>table表格操作</p>
 <p>html代码(注意里面的lay-filter)<br>有兴趣的朋友可以看看我之前写的layui前后台交互</p>
-<p> ‘<link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
+<blockquote>
+<p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"></p>
+<p><script type="text/javascript" src="static/layui/layui.js"></script></p>
 <p><table class="layui-hide" id="test" lay-filter="table"></table>‘</p>
+</blockquote>
 <p>js代码</p>
+<blockquote>
 <!-- layui的tpl表达式  位置可以任放 id对应的是下面的操作tool工具   这里记着lay-event这是layui事件捕获 -->
-<script type="text/html" id="toolBar">
-<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="edit">&#xe642;</a>
-<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="del">&#xe640;</a>
-
-<script type="text/javascript">
-layui.use(['form','layer','table','upload'], function(){
-      var table = layui.table
-      ,form = layui.form,upload = layui.upload,layer=layui.layer;
-      table.render({
-        elem: '#test'
-        ,url:'manager/store/list'
-        ,cellMinWidth: 80
-        ,cols: [[
-          {type:'numbers'}
-          ,{field:'storeName', title:'店铺名'}
-          ,{field:'userNickName', title:'用户昵称'}
-          ,{field:'address', title: '地址'}
-          ,{field:'phone', title: '手机号码'}
-          ,{field:'price', title: '10张打印价格', sort: true}
-          ,{field:'likes', title:'点赞数', sort: true}
-          ,{field:'pic', title:'图片路径'}
-          ,{field:'createTime', title:'创建时间', sort: true}
-          ,{field:'mark', title:'说明'}
-          ,{fixed: 'right',title: '操作', width:180, align:'center', toolbar: '#toolBar'}  //绑定tpl表达式
-        ]]
-        ,page: true   //开启分页
-        ,id: 'testReload'  //这个id挺重要的  你对table做操作时候需要使用到  比如reload的时候
-      });
-      <!-- 这是表格查询的  这里根据店铺名和用户昵称还有手机号码查询  查询框自己任意放位置 
-           这里注意的方法是 table.reload('table的id',{});重新载入数据-->
-      var $ = layui.$, active = {
-                reload: function(){
-                    var storeName = $.trim($('#storeName').val());
-                    var userNickName = $.trim($('#userNickName').val());
-                    var phone = $('#phone').val();
-                    table.reload('testReload', {
-                        where: {
-                            storeName: storeName
-                            ,userNickName: userNickName
-                            ,phone: phone
-                        }
-                    });
-                }
-            };
-    //监听查看，删除、编辑按钮--------这里就是上面说的lay-event绑定
-      table.on('tool(table)', function(obj){
-            var data = obj.data;
-           if(obj.event === 'del'){
-              layer.confirm('真的删除行么', function(index){
-                  var json=eval('('+JSON.stringify(data)+')');//String转json
-                  log(json['storeId'])
-                  $.post("manager/store/delete",{"storeIds":json['storeId']},function(msg){
-                      if(msg.code==0){
-                          obj.del();
-                          layer.close(index);
-                      }else{
-                          layer.msg('删除失败！');
-                      }
-                  })
-              });
-              //编辑
-            } else if(obj.event === 'edit'){
-                 var json=eval('('+JSON.stringify(data)+')');//String转json
-                 layerOpen('web/store/add?storeId='+json['storeId'],'编辑店铺信息','670px;', '530px;');
-            }
-          });
-          <!-- 查询框中查询按钮click事件 最终调用的是上面的那个active方法-->
-      $('.demoTable .layui-btn').on('click', function(){
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
-          });
-      //这里没什么  就是我自己新增的一个添加页面按钮 layerOpen是自己封装的方法
-      $('.demoTable #add').on('click', function(){
-
-          return aler("非法操作,正式运行下不会有添加功能,你可以尝试解锁");
-          layerOpen('web/store/add','添加店铺信息','670px;', '530px;');
-          });
-})
- </script>
-
+<p><script type="text/html" id="toolBar"><br><a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="edit">&#xe642;</a><br><a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="del">&#xe640;</a></p>
+</blockquote>
+<blockquote>
+<p><script type="text/javascript"><br>layui.use([‘form’,’layer’,’table’,’upload’], function(){<br>    var table = layui.table<br>   ,form = layui.form,upload = layui.upload,layer=layui.layer;<br>  table.render({<br>   elem: ‘#test’<br>  ,url:’manager/store/list’<br> ,cellMinWidth: 80<br>,cols: [[<br> {type:’numbers’}<br>,{field:’storeName’, title:’店铺名’}<br>,{field:’userNickName’, title:’用户昵称’}<br>,{field:’address’, title: ‘地址’}<br>,{field:’phone’, title: ‘手机号码’}<br>,{field:’price’, title: ‘10张打印价格’, sort: true}<br>,{field:’likes’, title:’点赞数’, sort: true}<br>,{field:’pic’, title:’图片路径’}<br>,{field:’createTime’, title:’创建时间’, sort: true}<br>,{field:’mark’, title:’说明’}<br>,{fixed: ‘right’,title: ‘操作’, width:180, align:’center’, toolbar: &gt;’#toolBar’}  //绑定tpl表达式<br>]]<br>        ,page: true   //开启分页<br>        ,id: ‘testReload’  //这个id挺重要的  你对table做操作时候需要使用到  比如reload的时候<br>      });<br>      <!-- 这是表格查询的  这里根据店铺名和用户昵称还有手机号码查询  查询框自己任意放位置 
+           这里注意的方法是 table.reload('table的id',{});重新载入数据--><br>      var $ = layui.$, active = {<br>                reload: function(){<br>                    var storeName = $.trim($(‘#storeName’).val());<br>                    var userNickName = $.trim($(‘#userNickName’).val());<br>                    var phone = $(‘#phone’).val();<br>                    table.reload(‘testReload’, {<br>                        where: {<br>                            storeName: storeName<br>                            ,userNickName: userNickName<br>                            ,phone: phone<br>                        }<br>                    });<br>                }<br>            };<br>    //监听查看，删除、编辑按钮——–这里就是上面说的lay-event绑定<br>      table.on(‘tool(table)’, function(obj){<br>            var data = obj.data;<br>           if(obj.event === ‘del’){<br>              layer.confirm(‘真的删除行么’, function(index){<br>                  var json=eval(‘(‘+JSON.stringify(data)+’)’);//String转json<br>                  log(json[‘storeId’])<br>                  $.post(“manager/store/delete”,{“storeIds”:json[‘storeId’]},function(msg){<br>                      if(msg.code==0){<br>                          obj.del();<br>                          layer.close(index);<br>                      }else{<br>                          layer.msg(‘删除失败！’);<br>                      }<br>                  })<br>              });<br>              //编辑<br>            } else if(obj.event === ‘edit’){<br>                 var json=eval(‘(‘+JSON.stringify(data)+’)’);//String转json<br>                 layerOpen(‘web/store/add?storeId=’+json[‘storeId’],’编辑店铺信息’,’670px;’, ‘530px;’);<br>            }<br>          });<br>          <!-- 查询框中查询按钮click事件 最终调用的是上面的那个active方法--><br>      $(‘.demoTable .layui-btn’).on(‘click’, function(){<br>            var type = $(this).data(‘type’);<br>            active[type] ? active[type].call(this) : ‘’;<br>          });<br>      //这里没什么  就是我自己新增的一个添加页面按钮 layerOpen是自己封装的方法<br>      $(‘.demoTable #add’).on(‘click’, function(){</p>
+</blockquote>
+<pre><code>return aler(&quot;非法操作,正式运行下不会有添加功能,你可以尝试解锁&quot;);
+layerOpen(&apos;web/store/add&apos;,&apos;添加店铺信息&apos;,&apos;670px;&apos;, &apos;530px;&apos;);
+});
+</code></pre><p>})<br> </script></p>
 <p>layui的form表单操作</p>
 <p>html代码</p>
 <p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
@@ -1404,7 +1115,7 @@ layui.use(['form','layer','table','upload'], function(){
 <blockquote>
 <p>form表单中的重点中的重点 ：ajax执行后一定要 return false; 否则就会遇到事件不走自定义ajax的情况。这是初学者最容易忽略的地方。</p>
 </blockquote>
-
+</blockquote>
           
         
       
@@ -1558,6 +1269,251 @@ layui.use(['form','layer','table','upload'], function(){
 <p>load函数<br>使用load方法，将ajax加载的内容直接插入到标签中<br>案例：<br>$(function(){<br>$(#div1).click(function(){<br>//post();<br>//get();<br>$(#div1).load(ajax.do?name=马九);<br>});<br>});</p>
 <p>应用场景：<br>用户注册时检查用户名是否存在<br>需求：用户注册时，填写手机号后，当输入框失去焦点时，对手机号进行服务器验证后在手机号输入框后面显示”用户名已存在或用户名可以使用;<br>思路：<br>1、在input的onblur事件中进行验证<br>2、通过ajax发送手机号给后台Servlet<br>3、Servlet对手机号进行数据库查询，返回是否存在的文字给ajax<br>4、ajax收到返回文字后，显示到标签上</p>
 <p>总结：Ajax能够让浏览器和服务器进行交互，并且在不刷新页面的情况下对网页内容进行更新，大大提高了用户体验，通过Ajax技术能够构建交互性极强的Web应用程序。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2016/07/10/贪心算法解决背包问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫丹丹">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="闫丹丹的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2016/07/10/贪心算法解决背包问题/" itemprop="url">贪心算法解决背包问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-10T10:44:49+08:00">
+                2016-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#include “stdafx.h”</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#define MAXSIZE 10 //假设物体总数</p>
+<p>#define M 20 //背包的容量</p>
+<p>//算法核心，贪心算法<br>void GREEDY(float dzw[], float x[], int sortResult[], int n)<br>{</p>
+<pre><code>float BCaption = M;
+int i = 0;
+int temp = 0;
+for (i = 0; i &lt; n; i++)//准备输出结果
+{
+    x[i] = 0;
+}
+for (i = 0; i &lt; n; i++)
+{
+    temp = sortResult[i];//得到取物体的顺序
+    if (dzw[temp] &gt; BCaption ) break;
+
+    x[temp] = 1;//若合适则取出
+    BCaption -= dzw[temp];//背包容量改变
+}
+if (i &lt;= n)//使背包充满
+{
+    x[temp] = BCaption  / dzw[temp];
+}
+return;
+</code></pre><p>}</p>
+<p>void sort(float tempArray[], int sortResult[], int n)<br>{</p>
+<pre><code>int i = 0, j = 0;
+int index = 0, k = 0;
+for (i = 0; i &lt; n; i++)//对映射数组赋初值0
+{
+    sortResult[i] = 0;
+}
+for (i = 0; i &lt; n; i++)
+{
+    float temp = tempArray[i];
+    index = i;
+    //找到最大的效益并保存此时的下标
+    for (j = 0; j &lt; n; j++)
+    {
+        if ((temp &lt; tempArray[j]) &amp;&amp; (sortResult[j] == 0))
+        {
+            temp = tempArray[j];
+            index = j;
+        }
+    }
+    if (sortResult[index] == 0)
+    {
+        sortResult[index] = ++k;
+    }
+}
+//修改效益最低的sortResult[i]标记
+for (i = 0; i &lt; n; i++)
+{
+    if (sortResult[i] == 0)
+    {
+        sortResult[i] = ++k;
+    }
+}
+return;
+</code></pre><p>}<br>//得到本算法的所有输入信息<br>void getData(float djz[], float dzw[], int *n)<br>{</p>
+<pre><code>int i = 0;
+printf(&quot;请输入物品的种类个数: &quot;);
+scanf(&quot;%d&quot;, n);
+printf(&quot;请输入各物品种类的单位价值 :\n&quot;);
+for (i = 0; i &lt; (*n); i++)
+    {
+        scanf(&quot;%f&quot;, &amp;djz[i]);
+    }
+printf(&quot;请输入各物品种类的重量 :\n&quot;);
+for (i = 0; i &lt; (*n); i++)
+{
+    scanf(&quot;%f&quot;, &amp;dzw[i]);//输入各种类的各个总重量
+}
+return;
+</code></pre><p>}</p>
+<p>void output(float x[], int n)<br>{</p>
+<pre><code>int i;
+printf(&quot;\n\nafter arithmetic data: advise method\n&quot;);
+for (i = 0; i &lt; n; i++)
+{
+    printf(&quot;x[%d]\t&quot;, i);
+}
+printf(&quot;\n&quot;);
+for (i = 0; i &lt; n; i++)
+{
+    printf(&quot;%2.3f\t&quot;, x[i]);
+}
+return;
+</code></pre><p>}<br>int main()<br>{</p>
+<pre><code>float djz[MAXSIZE], dzw[MAXSIZE], x[MAXSIZE];
+int i = 0, n = 0;
+int sortResult[MAXSIZE];
+getData(djz, dzw, &amp;n);
+for (i = 0; i &lt; n; i++)
+{
+    x[i] = djz[i] / dzw[i];
+}
+sort(x, sortResult, n);
+GREEDY(dzw, x, sortResult, n);
+output(x, n);
+system(&quot;pause&quot;);
+</code></pre><p>}</p>
 
           
         

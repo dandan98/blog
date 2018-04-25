@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
+<meta name="description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互    ‘  js代码   &amp;#xe642;&amp;#xe640;   layui.use([‘form’,’layer’,’table’,’upload’], function(){    var table = layui.table   ,form = layui.form,uplo">
 <meta property="og:type" content="website">
 <meta property="og:title" content="layui表格操作与form表单操作">
 <meta property="og:url" content="https://github.com/dandan98/blog/word/layui表格（table）操作与form操作.html">
 <meta property="og:site_name" content="闫丹丹的博客">
-<meta property="og:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
+<meta property="og:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互    ‘  js代码   &amp;#xe642;&amp;#xe640;   layui.use([‘form’,’layer’,’table’,’upload’], function(){    var table = layui.table   ,form = layui.form,uplo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T12:53:05.293Z">
+<meta property="og:updated_time" content="2018-04-25T13:15:49.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="layui表格操作与form表单操作">
-<meta name="twitter:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
+<meta name="twitter:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互    ‘  js代码   &amp;#xe642;&amp;#xe640;   layui.use([‘form’,’layer’,’table’,’upload’], function(){    var table = layui.table   ,form = layui.form,uplo">
 
 
 
@@ -282,90 +282,24 @@
         
           <p>table表格操作</p>
 <p>html代码(注意里面的lay-filter)<br>有兴趣的朋友可以看看我之前写的layui前后台交互</p>
-<p> ‘<link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
+<blockquote>
+<p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"></p>
+<p><script type="text/javascript" src="static/layui/layui.js"></script></p>
 <p><table class="layui-hide" id="test" lay-filter="table"></table>‘</p>
+</blockquote>
 <p>js代码</p>
+<blockquote>
 <!-- layui的tpl表达式  位置可以任放 id对应的是下面的操作tool工具   这里记着lay-event这是layui事件捕获 -->
-<script type="text/html" id="toolBar">
-<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="edit">&#xe642;</a>
-<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="del">&#xe640;</a>
-
-<script type="text/javascript">
-layui.use(['form','layer','table','upload'], function(){
-      var table = layui.table
-      ,form = layui.form,upload = layui.upload,layer=layui.layer;
-      table.render({
-        elem: '#test'
-        ,url:'manager/store/list'
-        ,cellMinWidth: 80
-        ,cols: [[
-          {type:'numbers'}
-          ,{field:'storeName', title:'店铺名'}
-          ,{field:'userNickName', title:'用户昵称'}
-          ,{field:'address', title: '地址'}
-          ,{field:'phone', title: '手机号码'}
-          ,{field:'price', title: '10张打印价格', sort: true}
-          ,{field:'likes', title:'点赞数', sort: true}
-          ,{field:'pic', title:'图片路径'}
-          ,{field:'createTime', title:'创建时间', sort: true}
-          ,{field:'mark', title:'说明'}
-          ,{fixed: 'right',title: '操作', width:180, align:'center', toolbar: '#toolBar'}  //绑定tpl表达式
-        ]]
-        ,page: true   //开启分页
-        ,id: 'testReload'  //这个id挺重要的  你对table做操作时候需要使用到  比如reload的时候
-      });
-      <!-- 这是表格查询的  这里根据店铺名和用户昵称还有手机号码查询  查询框自己任意放位置 
-           这里注意的方法是 table.reload('table的id',{});重新载入数据-->
-      var $ = layui.$, active = {
-                reload: function(){
-                    var storeName = $.trim($('#storeName').val());
-                    var userNickName = $.trim($('#userNickName').val());
-                    var phone = $('#phone').val();
-                    table.reload('testReload', {
-                        where: {
-                            storeName: storeName
-                            ,userNickName: userNickName
-                            ,phone: phone
-                        }
-                    });
-                }
-            };
-    //监听查看，删除、编辑按钮--------这里就是上面说的lay-event绑定
-      table.on('tool(table)', function(obj){
-            var data = obj.data;
-           if(obj.event === 'del'){
-              layer.confirm('真的删除行么', function(index){
-                  var json=eval('('+JSON.stringify(data)+')');//String转json
-                  log(json['storeId'])
-                  $.post("manager/store/delete",{"storeIds":json['storeId']},function(msg){
-                      if(msg.code==0){
-                          obj.del();
-                          layer.close(index);
-                      }else{
-                          layer.msg('删除失败！');
-                      }
-                  })
-              });
-              //编辑
-            } else if(obj.event === 'edit'){
-                 var json=eval('('+JSON.stringify(data)+')');//String转json
-                 layerOpen('web/store/add?storeId='+json['storeId'],'编辑店铺信息','670px;', '530px;');
-            }
-          });
-          <!-- 查询框中查询按钮click事件 最终调用的是上面的那个active方法-->
-      $('.demoTable .layui-btn').on('click', function(){
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
-          });
-      //这里没什么  就是我自己新增的一个添加页面按钮 layerOpen是自己封装的方法
-      $('.demoTable #add').on('click', function(){
-
-          return aler("非法操作,正式运行下不会有添加功能,你可以尝试解锁");
-          layerOpen('web/store/add','添加店铺信息','670px;', '530px;');
-          });
-})
- </script>
-
+<p><script type="text/html" id="toolBar"><br><a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="edit">&#xe642;</a><br><a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="del">&#xe640;</a></p>
+</blockquote>
+<blockquote>
+<p><script type="text/javascript"><br>layui.use([‘form’,’layer’,’table’,’upload’], function(){<br>    var table = layui.table<br>   ,form = layui.form,upload = layui.upload,layer=layui.layer;<br>  table.render({<br>   elem: ‘#test’<br>  ,url:’manager/store/list’<br> ,cellMinWidth: 80<br>,cols: [[<br> {type:’numbers’}<br>,{field:’storeName’, title:’店铺名’}<br>,{field:’userNickName’, title:’用户昵称’}<br>,{field:’address’, title: ‘地址’}<br>,{field:’phone’, title: ‘手机号码’}<br>,{field:’price’, title: ‘10张打印价格’, sort: true}<br>,{field:’likes’, title:’点赞数’, sort: true}<br>,{field:’pic’, title:’图片路径’}<br>,{field:’createTime’, title:’创建时间’, sort: true}<br>,{field:’mark’, title:’说明’}<br>,{fixed: ‘right’,title: ‘操作’, width:180, align:’center’, toolbar: &gt;’#toolBar’}  //绑定tpl表达式<br>]]<br>        ,page: true   //开启分页<br>        ,id: ‘testReload’  //这个id挺重要的  你对table做操作时候需要使用到  比如reload的时候<br>      });<br>      <!-- 这是表格查询的  这里根据店铺名和用户昵称还有手机号码查询  查询框自己任意放位置 
+           这里注意的方法是 table.reload('table的id',{});重新载入数据--><br>      var $ = layui.$, active = {<br>                reload: function(){<br>                    var storeName = $.trim($(‘#storeName’).val());<br>                    var userNickName = $.trim($(‘#userNickName’).val());<br>                    var phone = $(‘#phone’).val();<br>                    table.reload(‘testReload’, {<br>                        where: {<br>                            storeName: storeName<br>                            ,userNickName: userNickName<br>                            ,phone: phone<br>                        }<br>                    });<br>                }<br>            };<br>    //监听查看，删除、编辑按钮——–这里就是上面说的lay-event绑定<br>      table.on(‘tool(table)’, function(obj){<br>            var data = obj.data;<br>           if(obj.event === ‘del’){<br>              layer.confirm(‘真的删除行么’, function(index){<br>                  var json=eval(‘(‘+JSON.stringify(data)+’)’);//String转json<br>                  log(json[‘storeId’])<br>                  $.post(“manager/store/delete”,{“storeIds”:json[‘storeId’]},function(msg){<br>                      if(msg.code==0){<br>                          obj.del();<br>                          layer.close(index);<br>                      }else{<br>                          layer.msg(‘删除失败！’);<br>                      }<br>                  })<br>              });<br>              //编辑<br>            } else if(obj.event === ‘edit’){<br>                 var json=eval(‘(‘+JSON.stringify(data)+’)’);//String转json<br>                 layerOpen(‘web/store/add?storeId=’+json[‘storeId’],’编辑店铺信息’,’670px;’, ‘530px;’);<br>            }<br>          });<br>          <!-- 查询框中查询按钮click事件 最终调用的是上面的那个active方法--><br>      $(‘.demoTable .layui-btn’).on(‘click’, function(){<br>            var type = $(this).data(‘type’);<br>            active[type] ? active[type].call(this) : ‘’;<br>          });<br>      //这里没什么  就是我自己新增的一个添加页面按钮 layerOpen是自己封装的方法<br>      $(‘.demoTable #add’).on(‘click’, function(){</p>
+</blockquote>
+<pre><code>return aler(&quot;非法操作,正式运行下不会有添加功能,你可以尝试解锁&quot;);
+layerOpen(&apos;web/store/add&apos;,&apos;添加店铺信息&apos;,&apos;670px;&apos;, &apos;530px;&apos;);
+});
+</code></pre><p>})<br> </script></p>
 <p>layui的form表单操作</p>
 <p>html代码</p>
 <p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
@@ -429,7 +363,7 @@ layui.use(['form','layer','table','upload'], function(){
 <blockquote>
 <p>form表单中的重点中的重点 ：ajax执行后一定要 return false; 否则就会遇到事件不走自定义ajax的情况。这是初学者最容易忽略的地方。</p>
 </blockquote>
-
+</blockquote>
         
       </div>
       
