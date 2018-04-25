@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="姓名：闫丹丹所在院校：陕西师范大学政治面貌：中共党员职务：班级班长联系方式：18729223585QQ:1925832437邮箱：yandandan0111@163.com      YanDanDan@snnu.edu.cn 成绩排名如下：2015-2016学年专业排名第43名（58.90%）；2016-2017学年专业排名第7名（9.59%）；前五学期成绩专业排名第23名（31.51%）；获奖">
+<meta name="description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
 <meta property="og:type" content="website">
-<meta property="og:title" content="基本信息">
-<meta property="og:url" content="https://github.com/dandan98/blog/info/index.html">
+<meta property="og:title" content="layui表格操作与form表单操作">
+<meta property="og:url" content="https://github.com/dandan98/blog/word/layui表格（table）操作与form操作.html">
 <meta property="og:site_name" content="闫丹丹的博客">
-<meta property="og:description" content="姓名：闫丹丹所在院校：陕西师范大学政治面貌：中共党员职务：班级班长联系方式：18729223585QQ:1925832437邮箱：yandandan0111@163.com      YanDanDan@snnu.edu.cn 成绩排名如下：2015-2016学年专业排名第43名（58.90%）；2016-2017学年专业排名第7名（9.59%）；前五学期成绩专业排名第23名（31.51%）；获奖">
+<meta property="og:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T12:29:43.169Z">
+<meta property="og:updated_time" content="2018-04-25T12:53:05.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基本信息">
-<meta name="twitter:description" content="姓名：闫丹丹所在院校：陕西师范大学政治面貌：中共党员职务：班级班长联系方式：18729223585QQ:1925832437邮箱：yandandan0111@163.com      YanDanDan@snnu.edu.cn 成绩排名如下：2015-2016学年专业排名第43名（58.90%）；2016-2017学年专业排名第7名（9.59%）；前五学期成绩专业排名第23名（31.51%）；获奖">
+<meta name="twitter:title" content="layui表格操作与form表单操作">
+<meta name="twitter:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/dandan98/blog/info/"/>
+  <link rel="canonical" href="https://github.com/dandan98/blog/word/layui表格（table）操作与form操作.html"/>
 
 
 
 
 
-  <title>基本信息 | 闫丹丹的博客</title>
+  <title>layui表格操作与form表单操作 | 闫丹丹的博客</title>
   
 
 
@@ -268,7 +268,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">基本信息</h1>
+	<h1 class="post-title" itemprop="name headline">layui表格操作与form表单操作</h1>
 
 
 
@@ -280,8 +280,155 @@
       <div class="post-body">
         
         
-          <p>姓名：闫丹丹<br>所在院校：陕西师范大学<br>政治面貌：中共党员<br>职务：班级班长<br>联系方式：18729223585<br>QQ:1925832437<br>邮箱：<a href="mailto:yandandan0111@163.com" target="_blank" rel="noopener">yandandan0111@163.com</a><br>      <a href="mailto:YanDanDan@snnu.edu.cn" target="_blank" rel="noopener">YanDanDan@snnu.edu.cn</a></p>
-<p>成绩排名如下：<br>2015-2016学年专业排名第43名（58.90%）；<br>2016-2017学年专业排名第7名（9.59%）；<br>前五学期成绩专业排名第23名（31.51%）；<br>获奖情况如下：<br>2017-2018学年获国家励志奖学金，专业二等奖学金，优秀学生干部</p>
+          <p>table表格操作</p>
+<p>html代码(注意里面的lay-filter)<br>有兴趣的朋友可以看看我之前写的layui前后台交互</p>
+<p> ‘<link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
+<p><table class="layui-hide" id="test" lay-filter="table"></table>‘</p>
+<p>js代码</p>
+<!-- layui的tpl表达式  位置可以任放 id对应的是下面的操作tool工具   这里记着lay-event这是layui事件捕获 -->
+<script type="text/html" id="toolBar">
+<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="edit">&#xe642;</a>
+<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="del">&#xe640;</a>
+
+<script type="text/javascript">
+layui.use(['form','layer','table','upload'], function(){
+      var table = layui.table
+      ,form = layui.form,upload = layui.upload,layer=layui.layer;
+      table.render({
+        elem: '#test'
+        ,url:'manager/store/list'
+        ,cellMinWidth: 80
+        ,cols: [[
+          {type:'numbers'}
+          ,{field:'storeName', title:'店铺名'}
+          ,{field:'userNickName', title:'用户昵称'}
+          ,{field:'address', title: '地址'}
+          ,{field:'phone', title: '手机号码'}
+          ,{field:'price', title: '10张打印价格', sort: true}
+          ,{field:'likes', title:'点赞数', sort: true}
+          ,{field:'pic', title:'图片路径'}
+          ,{field:'createTime', title:'创建时间', sort: true}
+          ,{field:'mark', title:'说明'}
+          ,{fixed: 'right',title: '操作', width:180, align:'center', toolbar: '#toolBar'}  //绑定tpl表达式
+        ]]
+        ,page: true   //开启分页
+        ,id: 'testReload'  //这个id挺重要的  你对table做操作时候需要使用到  比如reload的时候
+      });
+      <!-- 这是表格查询的  这里根据店铺名和用户昵称还有手机号码查询  查询框自己任意放位置 
+           这里注意的方法是 table.reload('table的id',{});重新载入数据-->
+      var $ = layui.$, active = {
+                reload: function(){
+                    var storeName = $.trim($('#storeName').val());
+                    var userNickName = $.trim($('#userNickName').val());
+                    var phone = $('#phone').val();
+                    table.reload('testReload', {
+                        where: {
+                            storeName: storeName
+                            ,userNickName: userNickName
+                            ,phone: phone
+                        }
+                    });
+                }
+            };
+    //监听查看，删除、编辑按钮--------这里就是上面说的lay-event绑定
+      table.on('tool(table)', function(obj){
+            var data = obj.data;
+           if(obj.event === 'del'){
+              layer.confirm('真的删除行么', function(index){
+                  var json=eval('('+JSON.stringify(data)+')');//String转json
+                  log(json['storeId'])
+                  $.post("manager/store/delete",{"storeIds":json['storeId']},function(msg){
+                      if(msg.code==0){
+                          obj.del();
+                          layer.close(index);
+                      }else{
+                          layer.msg('删除失败！');
+                      }
+                  })
+              });
+              //编辑
+            } else if(obj.event === 'edit'){
+                 var json=eval('('+JSON.stringify(data)+')');//String转json
+                 layerOpen('web/store/add?storeId='+json['storeId'],'编辑店铺信息','670px;', '530px;');
+            }
+          });
+          <!-- 查询框中查询按钮click事件 最终调用的是上面的那个active方法-->
+      $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+          });
+      //这里没什么  就是我自己新增的一个添加页面按钮 layerOpen是自己封装的方法
+      $('.demoTable #add').on('click', function(){
+
+          return aler("非法操作,正式运行下不会有添加功能,你可以尝试解锁");
+          layerOpen('web/store/add','添加店铺信息','670px;', '530px;');
+          });
+})
+ </script>
+
+<p>layui的form表单操作</p>
+<p>html代码</p>
+<p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
+<form class="layui-form layui-form-pane" action="store/updatestore" method="post"><br><input id="storeId" name="storeId" type="hidden"><br><div class="layui-form-item" style="margin-top: 15px;margin-left: 30px;"><br>    <label class="layui-form-label">店铺名</label><br>    <div class="layui-input-inline"><br>      <input type="text" name="storeName" id="storeName" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input"><br>    </div><br>   。。。。。。。省略其他输入框<br> <div class="layui-form-item"><br>    <div class="layui-input-block"><br>      <button class="layui-btn" lay-submit="" lay-filter="saveOrAdd">保存</button><br>      <button type="reset" class="layui-btn layui-btn-primary">重置</button><br>    </div><br>  </div><br></div></form>
+
+<p>form之中要注意的是lay-filter=”saveOrAdd”这个是绑定form操作的，还有一个是form的action可以不需要填写。</p>
+<script type="text/javascript">
+    layui.use([ 'form', 'layer', 'table','upload' ], function() {
+        var table = layui.table, $ = layui.$, form = layui.form,upload = layui.upload;
+        //编辑时候赋值
+        var urlParam = getParam('storeId');
+        log(urlParam)
+        if (!isEmpty(urlParam)) {
+            $.post("manager/store/getStoreById", {
+                "storeId" : urlParam
+            }, function(msg) {
+                var json = eval('(' + msg + ')');
+                for ( var key in json) {
+                    $("#" + key + "").val(json[key]);
+                }
+                $("#demo1").attr("src",json['pic']);
+                form.render('select');
+            });
+        }
+
+          //监听编辑或者添加-----之前说的重点lay-filter="saveOrAdd"
+          form.on('submit(saveOrAdd)', function(data){
+              var url = $("#storeId").val() == "" ?"manager/store/save" : "manager/store/update";
+              var datas=data.field;
+          $.ajax({
+            url:url,
+            data:datas,
+            type:"POST",
+            dataType:"json",
+            success:function(msg){
+                log(msg.code)
+                if(msg.code==0){
+                   //因为我的这个页面是添加或编辑页面  是通过layer.open出来的 所以parent.layer.close(index); 
+                   //你们的可以自行
+                    var index = parent.layer.getFrameIndex(window.name);  //获取当前弹窗索引index
+                    layer.msg('修改成功...', { icon: 6 });
+                    parent.layer.close(index); //返回成功 关闭当前弹窗
+                    window.parent.location.reload();//父页面刷新
+                }else{
+                    layer.msg('修改失败', { icon: 5 });
+                }
+            },
+            error:function(error){
+                layer.msg('系统异常！请联系管理员', { icon: 5 });
+            }
+        });
+           //***********重点中的重点********************
+            return false;
+            //**********重点中的重点*********************
+          });
+    });
+</script>
+
+
+
+<blockquote>
+<p>form表单中的重点中的重点 ：ajax执行后一定要 return false; 否则就会遇到事件不走自定义ajax的情况。这是初学者最容易忽略的地方。</p>
+</blockquote>
 
         
       </div>
