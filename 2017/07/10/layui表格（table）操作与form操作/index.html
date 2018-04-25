@@ -80,16 +80,17 @@
 
 
 
+<meta name="description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello,world">
-<meta property="og:url" content="https://github.com/dandan98/blog/2018/04/23/hello-world-1/index.html">
+<meta property="og:title" content="layui表格操作与form表单操作">
+<meta property="og:url" content="https://github.com/dandan98/blog/2017/07/10/layui表格（table）操作与form操作/index.html">
 <meta property="og:site_name" content="闫丹丹的博客">
+<meta property="og:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://dandan98.github.io/blog/images/photo.jpg">
-<meta property="og:updated_time" content="2018-04-25T08:38:55.550Z">
+<meta property="og:updated_time" content="2018-04-25T12:53:05.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello,world">
-<meta name="twitter:image" content="https://dandan98.github.io/blog/images/photo.jpg">
+<meta name="twitter:title" content="layui表格操作与form表单操作">
+<meta name="twitter:description" content="table表格操作 html代码(注意里面的lay-filter)有兴趣的朋友可以看看我之前写的layui前后台交互  ‘  ‘ js代码   &amp;#xe642; &amp;#xe640;   layui.use([&apos;form&apos;,&apos;layer&apos;,&apos;table&apos;,&apos;upload&apos;], function(){       var table = layui.table       ,form = layui.f">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/dandan98/blog/2018/04/23/hello-world-1/"/>
+  <link rel="canonical" href="https://github.com/dandan98/blog/2017/07/10/layui表格（table）操作与form操作/"/>
 
 
 
 
 
-  <title>hello,world | 闫丹丹的博客</title>
+  <title>layui表格操作与form表单操作 | 闫丹丹的博客</title>
   
 
 
@@ -274,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2018/04/23/hello-world-1/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2017/07/10/layui表格（table）操作与form操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="闫丹丹">
@@ -291,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hello,world</h1>
+          <h1 class="post-title" itemprop="name headline">layui表格操作与form表单操作</h1>
         
 
         <div class="post-meta">
@@ -303,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T20:44:49+08:00">
-                2018-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T10:44:49+08:00">
+                2017-07-10
               </time>
             
 
@@ -313,6 +314,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -341,7 +364,155 @@
       
 
       
-        <p><img src="https://dandan98.github.io/blog/images/photo.jpg" alt="huqjwds"></p>
+        <p>table表格操作</p>
+<p>html代码(注意里面的lay-filter)<br>有兴趣的朋友可以看看我之前写的layui前后台交互</p>
+<p> ‘<link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
+<p><table class="layui-hide" id="test" lay-filter="table"></table>‘</p>
+<p>js代码</p>
+<!-- layui的tpl表达式  位置可以任放 id对应的是下面的操作tool工具   这里记着lay-event这是layui事件捕获 -->
+<script type="text/html" id="toolBar">
+<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="edit">&#xe642;</a>
+<a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="del">&#xe640;</a>
+
+<script type="text/javascript">
+layui.use(['form','layer','table','upload'], function(){
+      var table = layui.table
+      ,form = layui.form,upload = layui.upload,layer=layui.layer;
+      table.render({
+        elem: '#test'
+        ,url:'manager/store/list'
+        ,cellMinWidth: 80
+        ,cols: [[
+          {type:'numbers'}
+          ,{field:'storeName', title:'店铺名'}
+          ,{field:'userNickName', title:'用户昵称'}
+          ,{field:'address', title: '地址'}
+          ,{field:'phone', title: '手机号码'}
+          ,{field:'price', title: '10张打印价格', sort: true}
+          ,{field:'likes', title:'点赞数', sort: true}
+          ,{field:'pic', title:'图片路径'}
+          ,{field:'createTime', title:'创建时间', sort: true}
+          ,{field:'mark', title:'说明'}
+          ,{fixed: 'right',title: '操作', width:180, align:'center', toolbar: '#toolBar'}  //绑定tpl表达式
+        ]]
+        ,page: true   //开启分页
+        ,id: 'testReload'  //这个id挺重要的  你对table做操作时候需要使用到  比如reload的时候
+      });
+      <!-- 这是表格查询的  这里根据店铺名和用户昵称还有手机号码查询  查询框自己任意放位置 
+           这里注意的方法是 table.reload('table的id',{});重新载入数据-->
+      var $ = layui.$, active = {
+                reload: function(){
+                    var storeName = $.trim($('#storeName').val());
+                    var userNickName = $.trim($('#userNickName').val());
+                    var phone = $('#phone').val();
+                    table.reload('testReload', {
+                        where: {
+                            storeName: storeName
+                            ,userNickName: userNickName
+                            ,phone: phone
+                        }
+                    });
+                }
+            };
+    //监听查看，删除、编辑按钮--------这里就是上面说的lay-event绑定
+      table.on('tool(table)', function(obj){
+            var data = obj.data;
+           if(obj.event === 'del'){
+              layer.confirm('真的删除行么', function(index){
+                  var json=eval('('+JSON.stringify(data)+')');//String转json
+                  log(json['storeId'])
+                  $.post("manager/store/delete",{"storeIds":json['storeId']},function(msg){
+                      if(msg.code==0){
+                          obj.del();
+                          layer.close(index);
+                      }else{
+                          layer.msg('删除失败！');
+                      }
+                  })
+              });
+              //编辑
+            } else if(obj.event === 'edit'){
+                 var json=eval('('+JSON.stringify(data)+')');//String转json
+                 layerOpen('web/store/add?storeId='+json['storeId'],'编辑店铺信息','670px;', '530px;');
+            }
+          });
+          <!-- 查询框中查询按钮click事件 最终调用的是上面的那个active方法-->
+      $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+          });
+      //这里没什么  就是我自己新增的一个添加页面按钮 layerOpen是自己封装的方法
+      $('.demoTable #add').on('click', function(){
+
+          return aler("非法操作,正式运行下不会有添加功能,你可以尝试解锁");
+          layerOpen('web/store/add','添加店铺信息','670px;', '530px;');
+          });
+})
+ </script>
+
+<p>layui的form表单操作</p>
+<p>html代码</p>
+<p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
+<form class="layui-form layui-form-pane" action="store/updatestore" method="post"><br><input id="storeId" name="storeId" type="hidden"><br><div class="layui-form-item" style="margin-top: 15px;margin-left: 30px;"><br>    <label class="layui-form-label">店铺名</label><br>    <div class="layui-input-inline"><br>      <input type="text" name="storeName" id="storeName" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input"><br>    </div><br>   。。。。。。。省略其他输入框<br> <div class="layui-form-item"><br>    <div class="layui-input-block"><br>      <button class="layui-btn" lay-submit="" lay-filter="saveOrAdd">保存</button><br>      <button type="reset" class="layui-btn layui-btn-primary">重置</button><br>    </div><br>  </div><br></div></form>
+
+<p>form之中要注意的是lay-filter=”saveOrAdd”这个是绑定form操作的，还有一个是form的action可以不需要填写。</p>
+<script type="text/javascript">
+    layui.use([ 'form', 'layer', 'table','upload' ], function() {
+        var table = layui.table, $ = layui.$, form = layui.form,upload = layui.upload;
+        //编辑时候赋值
+        var urlParam = getParam('storeId');
+        log(urlParam)
+        if (!isEmpty(urlParam)) {
+            $.post("manager/store/getStoreById", {
+                "storeId" : urlParam
+            }, function(msg) {
+                var json = eval('(' + msg + ')');
+                for ( var key in json) {
+                    $("#" + key + "").val(json[key]);
+                }
+                $("#demo1").attr("src",json['pic']);
+                form.render('select');
+            });
+        }
+
+          //监听编辑或者添加-----之前说的重点lay-filter="saveOrAdd"
+          form.on('submit(saveOrAdd)', function(data){
+              var url = $("#storeId").val() == "" ?"manager/store/save" : "manager/store/update";
+              var datas=data.field;
+          $.ajax({
+            url:url,
+            data:datas,
+            type:"POST",
+            dataType:"json",
+            success:function(msg){
+                log(msg.code)
+                if(msg.code==0){
+                   //因为我的这个页面是添加或编辑页面  是通过layer.open出来的 所以parent.layer.close(index); 
+                   //你们的可以自行
+                    var index = parent.layer.getFrameIndex(window.name);  //获取当前弹窗索引index
+                    layer.msg('修改成功...', { icon: 6 });
+                    parent.layer.close(index); //返回成功 关闭当前弹窗
+                    window.parent.location.reload();//父页面刷新
+                }else{
+                    layer.msg('修改失败', { icon: 5 });
+                }
+            },
+            error:function(error){
+                layer.msg('系统异常！请联系管理员', { icon: 5 });
+            }
+        });
+           //***********重点中的重点********************
+            return false;
+            //**********重点中的重点*********************
+          });
+    });
+</script>
+
+
+
+<blockquote>
+<p>form表单中的重点中的重点 ：ajax执行后一定要 return false; 否则就会遇到事件不走自定义ajax的情况。这是初学者最容易忽略的地方。</p>
+</blockquote>
 
       
     </div>
@@ -366,18 +537,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/04/23/hello-world/" rel="next" title="xx页面">
-                <i class="fa fa-chevron-left"></i> xx页面
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2018/04/24/index/" rel="prev" title="项目经历">
-                项目经历 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2017/07/23/FirstTerm/" rel="prev" title="精准扶贫系统">
+                精准扶贫系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
