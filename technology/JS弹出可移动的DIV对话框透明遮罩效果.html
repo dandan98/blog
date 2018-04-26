@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+
+
+  
+
+ 
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="、`&amp;lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&amp;quot;&amp;gt;  弹出提示 {margin:0;padding:0;font-size:12px;}html,body {height:100%;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JS弹出可移动的DIV对话框透明遮罩效果">
+<meta property="og:url" content="https://github.com/dandan98/blog/technology/JS弹出可移动的DIV对话框透明遮罩效果.html">
+<meta property="og:site_name" content="闫丹丹的博客">
+<meta property="og:description" content="、`&amp;lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&amp;quot;&amp;gt;  弹出提示 {margin:0;padding:0;font-size:12px;}html,body {height:100%;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-26T02:53:46.033Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS弹出可移动的DIV对话框透明遮罩效果">
+<meta name="twitter:description" content="、`&amp;lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&amp;quot;&amp;gt;  弹出提示 {margin:0;padding:0;font-size:12px;}html,body {height:100%;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '闫丹丹'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/dandan98/blog/technology/JS弹出可移动的DIV对话框透明遮罩效果.html"/>
+
+
+
+
+
+  <title>JS弹出可移动的DIV对话框透明遮罩效果 | 闫丹丹的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/dandan98/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">闫丹丹</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/blog/categories/项目经历" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />
+            
+            项目经历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-info">
+          <a href="/blog/info" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            基本信息
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-word">
+          <a href="/blog/categories/随笔" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-technology">
+          <a href="/blog/categories/技术" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            技术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">JS弹出可移动的DIV对话框透明遮罩效果</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>、<br><code>`</code><br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a> </p>
+<html xmlns="http://www.w3.org/1999/xhtml"><br><br><head><br><br><meta http-equiv="Content-Type" content="text/html; charset=gb2312"><br><br><title>弹出提示</title><br><br><style><br><br><em> {margin:0;padding:0;font-size:12px;}<br><br>html,body {height:100%;width:100%;}<br><br>#content {background:#f8f8f8;padding:30px;height:100%;}<br><br>#content a {font-size:30px;color:#369;font-weight:700;}<br><br>#alert {border:1px solid #369;width:300px;height:150px;background:#e2ecf5;z-index:1000;position:absolute;display:none;}<br><br>#alert h4 {height:20px;background:#369;color:#fff;padding:5px 0 0 5px;}<br><br>#alert h4 span {float:left;}<br><br>#alert h4 span#close {margin-left:210px;font-weight:500;cursor:pointer;}<br><br>#alert p {padding:12px 0 0 30px;}<br><br>#alert p input {width:120px;margin-left:20px;}<br><br>#alert p input.myinp {border:1px solid #ccc;height:16px;}<br><br>#alert p input.sub {width:60px;margin-left:30px;}<br><br></style><br><br></head><br><br><body><br><br>    <div id="content"><br><br>    <a href="#">注册</a><br><br>    <input type="checkbox" title="123" value="213" xml:lang="456"><br><br>    </div><br><br><br><br>    <div id="alert"><br><br>    <h4><span>现在注册</span><span id="close">关闭</span></h4><br><br>    <p><label>用户名</label><input type="text" class="myinp" onmouseover="this.style.border='1px solid #f60'" onfoucs="this.style.border='1px solid #f60'" onblur="this.style.border='1px solid #ccc'"></p><br><br>    <p><label>密　码</label><input type="password" class="myinp" onmouseover="this.style.border='1px solid #f60'" onfoucs="this.style.border='1px solid #f60'" onblur="this.style.border='1px solid #ccc'"></p><br><br>    <p><input type="submit" value="注册" class="sub"><input type="reset" value="重置" class="sub"></p><br><br>    </div><br><br><br><br>    <script type="text/javascript"><br><br>    var myAlert = document.getElementById(“alert”);<br><br>    var reg = document.getElementById(“content”).getElementsByTagName(“a”)[0];<br><br>    var mClose = document.getElementById(“close”);<br><br>    reg.onclick = function()<br><br>    {<br><br>    myAlert.style.display = “block”;<br><br>    myAlert.style.position = “absolute”;<br><br>    myAlert.style.top = “50%”;<br><br>    myAlert.style.left = “50%”;<br><br>    myAlert.style.marginTop = “-75px”;<br><br>    myAlert.style.marginLeft = “-150px”;<br><br>    mybg = document.createElement(“div”);<br><br>    mybg.setAttribute(“id”,”mybg”);<br><br>    mybg.style.background = “#000”;<br><br>    mybg.style.width = “100%”;<br><br>    mybg.style.height = “100%”;<br><br>    mybg.style.position = “absolute”;<br><br>    mybg.style.top = “0”;<br><br>    mybg.style.left = “0”;<br><br>    mybg.style.zIndex = “500”;<br><br>    mybg.style.opacity = “0.3”;<br><br>    mybg.style.filter = “Alpha(opacity=30)”;<br><br>    document.body.appendChild(mybg);<br><br>    document.body.style.overflow = “hidden”;<br><br>    }<br><br>    mClose.onclick = function()<br><br>    {<br><br>    myAlert.style.display = “none”;<br><br>    mybg.style.display = “none”;<br><br>    }<br><br>     //拖动<br><br>    var posX;<br><br>    var posY;<br><br>    document.getElementById(“alert”).onmousedown=function(e)<br><br>        {<br><br>        if(!e) e = window.event;<br><br>        var divLeft=myAlert.style.left;<br><br>        var divTop=myAlert.style.top;<br><br>        if(divLeft.indexOf(‘%’)!=-1)<br><br>            divLeft=document.body.clientWidth</em>divLeft.substring(0,divLeft.indexOf(‘%’))/100;<br><br>        else<br><br>            divLeft=parseInt(divLeft);<br><br>        if(divTop.indexOf(‘%’)!=-1)<br><br>            divTop=document.body.clientHeight*divTop.substring(0,divTop.indexOf(‘%’))/100;<br><br>        else<br><br>            divTop=parseInt(divTop);<br><br>        posX = e.clientX - parseInt(divLeft);<br><br>        posY = e.clientY - parseInt(divTop);<br><br>        document.onmousemove = mousemove;<br><br>        }<br><br><br><br>    document.onmouseup = function()<br><br>    {<br><br>        document.onmousemove = null;<br><br>    }<br><br>    function mousemove(ev)<br><br>    {<br><br>        if(ev==null) ev = window.event;<br><br>        myAlert.style.left = (ev.clientX - posX) + “px”;<br><br>        myAlert.style.top = ev.clientY - posY + “px”;<br><br>    }<br><br><br><br>     function closeProc(){<br><br>        message_box.style.visibility=’hidden’;<br><br>        procbg.style.visibility = “hidden”;<br><br>     }<br><br>    </script><br><br></body><br><br></html>
+
+<hr>
+<p> var myAlert = document.getElementById(“Formula”);<br>    function alphaBg()<br>    {<br>       myAlert.style.display = “block”;<br>       myAlert.style.position = “absolute”;<br>       myAlert.style.top = “50%”;<br>       myAlert.style.left = “50%”;<br>       myAlert.style.marginTop = “-75px”;<br>       myAlert.style.marginLeft = “-150px”;<br>       mybg = document.createElement(“div”);<br>       mybg.setAttribute(“id”,”mybg”);<br>       mybg.style.background = “#000”;<br>       mybg.style.width = “100%”;<br>       mybg.style.height = “100%”;<br>       mybg.style.position = “absolute”;<br>       mybg.style.top = “0”;<br>       mybg.style.left = “0”;<br>       mybg.style.zIndex = “500”;<br>       mybg.style.opacity = “0.0”;<br>       mybg.style.filter = “Alpha(opacity=0)”;<br>       document.body.appendChild(mybg);<br>       document.body.style.overflow = “hidden”;<br>    }<br>    function closeAlphe(){<br>       myAlert.style.display = “none”;</p>
+<pre><code>     mybg.style.display = &quot;none&quot;;
+
+}
+var posX;
+var posY; 
+document.getElementById(&quot;Formula&quot;).onmousedown=function(e)
+{
+   if(!e) e = window.event;  
+   var divLeft=myAlert.style.left;
+   var divTop=myAlert.style.top;
+   if(divLeft.indexOf(&apos;%&apos;)!=-1)
+     divLeft=document.body.clientWidth*divLeft.substring(0,divLeft.indexOf(&apos;%&apos;))/100;
+   else
+     divLeft=parseInt(divLeft);
+   if(divTop.indexOf(&apos;%&apos;)!=-1)
+     divTop=document.body.clientHeight*divTop.substring(0,divTop.indexOf(&apos;%&apos;))/100;
+   else
+     divTop=parseInt(divTop);
+   posX = e.clientX - parseInt(divLeft);
+   posY = e.clientY - parseInt(divTop);
+   document.onmousemove = mousemove;
+}
+document.onmouseup = function()
+{
+  document.onmousemove = null;
+}
+function mousemove(ev)
+{
+  if(ev==null) ev = window.event;
+  myAlert.style.left = (ev.clientX - posX) + &quot;px&quot;; 
+  myAlert.style.top = ev.clientY - posY + &quot;px&quot;;
+}
+</code></pre>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/photo.jpg"
+                alt="闫丹丹" />
+            
+              <p class="site-author-name" itemprop="name">闫丹丹</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">现在注册关闭</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">闫丹丹 E-mail: yandandan0111@163.com</span>
+
+  
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script src="/js/src/love.js" type="text/javascript" charset="utf-8" async defer></script>

@@ -1041,6 +1041,501 @@ system(&quot;pause&quot;);
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2017/12/20/JS弹出可移动的DIV对话框透明遮罩效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫丹丹">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="闫丹丹的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2017/12/20/JS弹出可移动的DIV对话框透明遮罩效果/" itemprop="url">JS弹出可移动的DIV对话框透明遮罩效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T10:44:49+08:00">
+                2017-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>、<br><code>`</code><br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a> </p>
+<html xmlns="http://www.w3.org/1999/xhtml"><br><br><head><br><br><meta http-equiv="Content-Type" content="text/html; charset=gb2312"><br><br><title>弹出提示</title><br><br><style><br><br><em> {margin:0;padding:0;font-size:12px;}<br><br>html,body {height:100%;width:100%;}<br><br>#content {background:#f8f8f8;padding:30px;height:100%;}<br><br>#content a {font-size:30px;color:#369;font-weight:700;}<br><br>#alert {border:1px solid #369;width:300px;height:150px;background:#e2ecf5;z-index:1000;position:absolute;display:none;}<br><br>#alert h4 {height:20px;background:#369;color:#fff;padding:5px 0 0 5px;}<br><br>#alert h4 span {float:left;}<br><br>#alert h4 span#close {margin-left:210px;font-weight:500;cursor:pointer;}<br><br>#alert p {padding:12px 0 0 30px;}<br><br>#alert p input {width:120px;margin-left:20px;}<br><br>#alert p input.myinp {border:1px solid #ccc;height:16px;}<br><br>#alert p input.sub {width:60px;margin-left:30px;}<br><br></style><br><br></head><br><br><body><br><br>    <div id="content"><br><br>    <a href="#">注册</a><br><br>    <input type="checkbox" title="123" value="213" xml:lang="456"><br><br>    </div><br><br><br><br>    <div id="alert"><br><br>    <h4><span>现在注册</span><span id="close">关闭</span></h4><br><br>    <p><label>用户名</label><input type="text" class="myinp" onmouseover="this.style.border='1px solid #f60'" onfoucs="this.style.border='1px solid #f60'" onblur="this.style.border='1px solid #ccc'"></p><br><br>    <p><label>密　码</label><input type="password" class="myinp" onmouseover="this.style.border='1px solid #f60'" onfoucs="this.style.border='1px solid #f60'" onblur="this.style.border='1px solid #ccc'"></p><br><br>    <p><input type="submit" value="注册" class="sub"><input type="reset" value="重置" class="sub"></p><br><br>    </div><br><br><br><br>    <script type="text/javascript"><br><br>    var myAlert = document.getElementById(“alert”);<br><br>    var reg = document.getElementById(“content”).getElementsByTagName(“a”)[0];<br><br>    var mClose = document.getElementById(“close”);<br><br>    reg.onclick = function()<br><br>    {<br><br>    myAlert.style.display = “block”;<br><br>    myAlert.style.position = “absolute”;<br><br>    myAlert.style.top = “50%”;<br><br>    myAlert.style.left = “50%”;<br><br>    myAlert.style.marginTop = “-75px”;<br><br>    myAlert.style.marginLeft = “-150px”;<br><br>    mybg = document.createElement(“div”);<br><br>    mybg.setAttribute(“id”,”mybg”);<br><br>    mybg.style.background = “#000”;<br><br>    mybg.style.width = “100%”;<br><br>    mybg.style.height = “100%”;<br><br>    mybg.style.position = “absolute”;<br><br>    mybg.style.top = “0”;<br><br>    mybg.style.left = “0”;<br><br>    mybg.style.zIndex = “500”;<br><br>    mybg.style.opacity = “0.3”;<br><br>    mybg.style.filter = “Alpha(opacity=30)”;<br><br>    document.body.appendChild(mybg);<br><br>    document.body.style.overflow = “hidden”;<br><br>    }<br><br>    mClose.onclick = function()<br><br>    {<br><br>    myAlert.style.display = “none”;<br><br>    mybg.style.display = “none”;<br><br>    }<br><br>     //拖动<br><br>    var posX;<br><br>    var posY;<br><br>    document.getElementById(“alert”).onmousedown=function(e)<br><br>        {<br><br>        if(!e) e = window.event;<br><br>        var divLeft=myAlert.style.left;<br><br>        var divTop=myAlert.style.top;<br><br>        if(divLeft.indexOf(‘%’)!=-1)<br><br>            divLeft=document.body.clientWidth</em>divLeft.substring(0,divLeft.indexOf(‘%’))/100;<br><br>        else<br><br>            divLeft=parseInt(divLeft);<br><br>        if(divTop.indexOf(‘%’)!=-1)<br><br>            divTop=document.body.clientHeight*divTop.substring(0,divTop.indexOf(‘%’))/100;<br><br>        else<br><br>            divTop=parseInt(divTop);<br><br>        posX = e.clientX - parseInt(divLeft);<br><br>        posY = e.clientY - parseInt(divTop);<br><br>        document.onmousemove = mousemove;<br><br>        }<br><br><br><br>    document.onmouseup = function()<br><br>    {<br><br>        document.onmousemove = null;<br><br>    }<br><br>    function mousemove(ev)<br><br>    {<br><br>        if(ev==null) ev = window.event;<br><br>        myAlert.style.left = (ev.clientX - posX) + “px”;<br><br>        myAlert.style.top = ev.clientY - posY + “px”;<br><br>    }<br><br><br><br>     function closeProc(){<br><br>        message_box.style.visibility=’hidden’;<br><br>        procbg.style.visibility = “hidden”;<br><br>     }<br><br>    </script><br><br></body><br><br></html>
+
+<hr>
+<p> var myAlert = document.getElementById(“Formula”);<br>    function alphaBg()<br>    {<br>       myAlert.style.display = “block”;<br>       myAlert.style.position = “absolute”;<br>       myAlert.style.top = “50%”;<br>       myAlert.style.left = “50%”;<br>       myAlert.style.marginTop = “-75px”;<br>       myAlert.style.marginLeft = “-150px”;<br>       mybg = document.createElement(“div”);<br>       mybg.setAttribute(“id”,”mybg”);<br>       mybg.style.background = “#000”;<br>       mybg.style.width = “100%”;<br>       mybg.style.height = “100%”;<br>       mybg.style.position = “absolute”;<br>       mybg.style.top = “0”;<br>       mybg.style.left = “0”;<br>       mybg.style.zIndex = “500”;<br>       mybg.style.opacity = “0.0”;<br>       mybg.style.filter = “Alpha(opacity=0)”;<br>       document.body.appendChild(mybg);<br>       document.body.style.overflow = “hidden”;<br>    }<br>    function closeAlphe(){<br>       myAlert.style.display = “none”;</p>
+<pre><code>     mybg.style.display = &quot;none&quot;;
+
+}
+var posX;
+var posY; 
+document.getElementById(&quot;Formula&quot;).onmousedown=function(e)
+{
+   if(!e) e = window.event;  
+   var divLeft=myAlert.style.left;
+   var divTop=myAlert.style.top;
+   if(divLeft.indexOf(&apos;%&apos;)!=-1)
+     divLeft=document.body.clientWidth*divLeft.substring(0,divLeft.indexOf(&apos;%&apos;))/100;
+   else
+     divLeft=parseInt(divLeft);
+   if(divTop.indexOf(&apos;%&apos;)!=-1)
+     divTop=document.body.clientHeight*divTop.substring(0,divTop.indexOf(&apos;%&apos;))/100;
+   else
+     divTop=parseInt(divTop);
+   posX = e.clientX - parseInt(divLeft);
+   posY = e.clientY - parseInt(divTop);
+   document.onmousemove = mousemove;
+}
+document.onmouseup = function()
+{
+  document.onmousemove = null;
+}
+function mousemove(ev)
+{
+  if(ev==null) ev = window.event;
+  myAlert.style.left = (ev.clientX - posX) + &quot;px&quot;; 
+  myAlert.style.top = ev.clientY - posY + &quot;px&quot;;
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2017/11/25/Ajax上传图片以及上传之前先预览/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫丹丹">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="闫丹丹的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2017/11/25/Ajax上传图片以及上传之前先预览/" itemprop="url">Ajax上传图片以及上传之前先预览</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T21:44:49+08:00">
+                2017-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="上传之前的预览"><a href="#上传之前的预览" class="headerlink" title="上传之前的预览"></a>上传之前的预览</h4><h6 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h6><p>先来说说图片上传之前的预览问题。这里主要采用了HTML5中的FileReader对象来实现，关于FileReader对象，如果小伙伴们不了解，可以查看这篇博客HTML5学习之FileReader接口。我们来看看实现方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Ajax上传文件&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;jquery-3.2.1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">用户名：&lt;input id=&quot;username&quot; type=&quot;text&quot;&gt;&lt;br&gt;</span><br><span class="line">用户图像：&lt;input id=&quot;userface&quot; type=&quot;file&quot; onchange=&quot;preview(this)&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;div id=&quot;preview&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btnClick&quot; value=&quot;上传&quot;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(&quot;#btnClick&quot;).click(function () &#123;</span><br><span class="line">        var formData = new FormData();</span><br><span class="line">        formData.append(&quot;username&quot;, $(&quot;#username&quot;).val());</span><br><span class="line">        formData.append(&quot;file&quot;, $(&quot;#userface&quot;)[0].files[0]);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: &apos;/fileupload&apos;,</span><br><span class="line">            type: &apos;post&apos;,</span><br><span class="line">            data: formData,</span><br><span class="line">            processData: false,</span><br><span class="line">            contentType: false,</span><br><span class="line">            success: function (msg) &#123;</span><br><span class="line">                alert(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    function preview(file) &#123;</span><br><span class="line">        var prevDiv = document.getElementById(&apos;preview&apos;);</span><br><span class="line">        if (file.files &amp;&amp; file.files[0]) &#123;</span><br><span class="line">            var reader = new FileReader();</span><br><span class="line">            reader.onload = function (evt) &#123;</span><br><span class="line">                prevDiv.innerHTML = &apos;&lt;img src=&quot;&apos; + evt.target.result + &apos;&quot; /&gt;&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            reader.readAsDataURL(file.files[0]);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            prevDiv.innerHTML = &apos;&lt;div class=&quot;img&quot; style=&quot;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\&apos;&apos; + file.value + &apos;\&apos;&quot;&gt;&lt;/div&gt;&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里对于支持FileReader的浏览器直接使用FileReader来实现，不支持FileReader的浏览器则采用微软的滤镜来实现（注意给图片上传的input标签设置onchange函数）。 <br></p>
+<p>实现效果如下： </p>
+<p><img src="https://img-blog.csdn.net/20170825184056537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjcwMjU0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h6 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h6><p>除了这种方式之外我们也可以采用网上现成的一个jQuery实现的方式。这里主要参考了这里。 <br><br>不过由于原文年代久远，里边使用的$.browser.msie从jQuery1.9就被移除掉了，所以如果我们想使用这个得做一点额外的处理，我修改后的uploadPreview.js文件内容如下： <br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">jQuery.browser=&#123;&#125;;(function()&#123;jQuery.browser.msie=false; jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)./))&#123; jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;&#125;&#125;)();</span><br><span class="line">jQuery.fn.extend(&#123;</span><br><span class="line">    uploadPreview: function (opts) &#123;</span><br><span class="line">        var _self = this,</span><br><span class="line">            _this = $(this);</span><br><span class="line">        opts = jQuery.extend(&#123;</span><br><span class="line">            Img: &quot;ImgPr&quot;,</span><br><span class="line">            Width: 100,</span><br><span class="line">            Height: 100,</span><br><span class="line">            ImgType: [&quot;gif&quot;, &quot;jpeg&quot;, &quot;jpg&quot;, &quot;bmp&quot;, &quot;png&quot;],</span><br><span class="line">            Callback: function () &#123;&#125;</span><br><span class="line">        &#125;, opts || &#123;&#125;);</span><br><span class="line">        _self.getObjectURL = function (file) &#123;</span><br><span class="line">            var url = null;</span><br><span class="line">            if (window.createObjectURL != undefined) &#123;</span><br><span class="line">                url = window.createObjectURL(file)</span><br><span class="line">            &#125; else if (window.URL != undefined) &#123;</span><br><span class="line">                url = window.URL.createObjectURL(file)</span><br><span class="line">            &#125; else if (window.webkitURL != undefined) &#123;</span><br><span class="line">                url = window.webkitURL.createObjectURL(file)</span><br><span class="line">            &#125;</span><br><span class="line">            return url</span><br><span class="line">        &#125;;</span><br><span class="line">        _this.change(function () &#123;</span><br><span class="line">            if (this.value) &#123;</span><br><span class="line">                if (!RegExp(&quot;\.(&quot; + opts.ImgType.join(&quot;|&quot;) + &quot;)$&quot;, &quot;i&quot;).test(this.value.toLowerCase())) &#123;</span><br><span class="line">                    alert(&quot;选择文件错误,图片类型必须是&quot; + opts.ImgType.join(&quot;，&quot;) + &quot;中的一种&quot;);</span><br><span class="line">                    this.value = &quot;&quot;;</span><br><span class="line">                    return false</span><br><span class="line">                &#125;</span><br><span class="line">                if ($.browser.msie) &#123;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        $(&quot;#&quot; + opts.Img).attr(&apos;src&apos;, _self.getObjectURL(this.files[0]))</span><br><span class="line">                    &#125; catch (e) &#123;</span><br><span class="line">                        var src = &quot;&quot;;</span><br><span class="line">                        var obj = $(&quot;#&quot; + opts.Img);</span><br><span class="line">                        var div = obj.parent(&quot;div&quot;)[0];</span><br><span class="line">                        _self.select();</span><br><span class="line">                        if (top != self) &#123;</span><br><span class="line">                            window.parent.document.body.focus()</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            _self.blur()</span><br><span class="line">                        &#125;</span><br><span class="line">                        src = document.selection.createRange().text;</span><br><span class="line">                        document.selection.empty();</span><br><span class="line">                        obj.hide();</span><br><span class="line">                        obj.parent(&quot;div&quot;).css(&#123;</span><br><span class="line">                            &apos;filter&apos;: &apos;progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)&apos;,</span><br><span class="line">                            &apos;width&apos;: opts.Width + &apos;px&apos;,</span><br><span class="line">                            &apos;height&apos;: opts.Height + &apos;px&apos;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        div.filters.item(&quot;DXImageTransform.Microsoft.AlphaImageLoader&quot;).src = src</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    $(&quot;#&quot; + opts.Img).attr(&apos;src&apos;, _self.getObjectURL(this.files[0]))</span><br><span class="line">                &#125;</span><br><span class="line">                opts.Callback()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>然后在我们的html文件中引入这个js文件即可： <br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Ajax上传文件&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;jquery-3.2.1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;uploadPreview.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">用户名：&lt;input id=&quot;username&quot; type=&quot;text&quot;&gt;&lt;br&gt;</span><br><span class="line">用户图像：&lt;input id=&quot;userface&quot; type=&quot;file&quot; onchange=&quot;preview(this)&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;div&gt;&lt;img id=&quot;ImgPr&quot; width=&quot;200&quot; height=&quot;200&quot;/&gt;&lt;/div&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btnClick&quot; value=&quot;上传&quot;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(&quot;#btnClick&quot;).click(function () &#123;</span><br><span class="line">        var formData = new FormData();</span><br><span class="line">        formData.append(&quot;username&quot;, $(&quot;#username&quot;).val());</span><br><span class="line">        formData.append(&quot;file&quot;, $(&quot;#userface&quot;)[0].files[0]);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: &apos;/fileupload&apos;,</span><br><span class="line">            type: &apos;post&apos;,</span><br><span class="line">            data: formData,</span><br><span class="line">            processData: false,</span><br><span class="line">            contentType: false,</span><br><span class="line">            success: function (msg) &#123;</span><br><span class="line">                alert(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    $(&quot;#userface&quot;).uploadPreview(&#123;Img: &quot;ImgPr&quot;, Width: 120, Height: 120&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里有如下几点需要注意： <br></p>
+<p>1.HTML页面中要引入我们自定义的uploadPreview.js文件  <br><br>2.预先定义好要显示预览图片的img标签，该标签要有id。  <br><br>3.查找到img标签然后调用uploadPreview函数 <br></p>
+<p>执行效果如下：  <br></p>
+<p><img src="https://img-blog.csdn.net/20170825190203757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjcwMjU0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>Ajax上传图片文件</p>
+<p>Ajax上传图片文件就简单了，没有那么多方案，核心代码如下： <br></p>
+<pre><code>var formData = new FormData();
+formData.append(&quot;username&quot;, $(&quot;#username&quot;).val());
+formData.append(&quot;file&quot;, $(&quot;#userface&quot;)[0].files[0]);
+$.ajax({
+    url: &apos;/fileupload&apos;,
+    type: &apos;post&apos;,
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (msg) {
+        alert(msg);
+    }
+});
+
+</code></pre><p>核心就是定义一个FormData对象，将要上传的数据包装到这个对象中去。然后在ajax上传数据的时候设置data属性就为formdata，processData属性设置为false，表示jQuery不要去处理发送的数据，然后设置contentType属性的值为false，表示不要设置请求头的contentType属性。OK，主要就是设置这三个，设置成功之后，其他的处理就和常规的ajax用法一致了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2017/11/10/form表单改为AJAX提交/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫丹丹">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="闫丹丹的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2017/11/10/form表单改为AJAX提交/" itemprop="url">form表单改为AJAX提交</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T22:44:49+08:00">
+                2017-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考博客：<a href="http://www.cnblogs.com/bubbleStar/p/6060415.html" target="_blank" rel="noopener">http://www.cnblogs.com/bubbleStar/p/6060415.html</a> <br><br>参考博客：<a href="http://blog.csdn.net/u011458469/article/details/48134581" target="_blank" rel="noopener">http://blog.csdn.net/u011458469/article/details/48134581</a> <br></p>
+<h6 id="一、form表单改成AJAX提交"><a href="#一、form表单改成AJAX提交" class="headerlink" title="一、form表单改成AJAX提交"></a>一、form表单改成AJAX提交</h6><p>原来的form格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;xxx&quot; method=&quot;get&quot;&gt;  //action的值是请求的url地址</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;name&quot;&gt;姓名&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;name&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;jobNumber&quot;&gt;工号&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;number&quot; class=&quot;form-control&quot; name=&quot;jobNumber&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;nation&quot;&gt;民族&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;nation&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;gender&quot;&gt;性别&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;gender&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;modal-footer&quot;&gt;</span><br><span class="line">    　&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;</span><br><span class="line">　　　&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;提交&lt;/button&gt;　</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>  修改成AJAX提交的流程</p>
+<p>将form元素的属性action和method去掉，添加id=”myForm”,form元素就变为<form id="myForm"></form></p>
+<p>将提交按钮的button的type=”submit”改为type=”button”，增加 id <br></p>
+<p>在js文件中写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#按键的id&quot;).click(function () &#123;</span><br><span class="line">   $.ajax(&#123;  </span><br><span class="line">           type: &quot;POST&quot;,   //提交的方法</span><br><span class="line">           url:&quot;/home/request&quot;, //提交的地址  </span><br><span class="line">           data:$(&apos;#fm&apos;).serialize(),// 序列化表单值  </span><br><span class="line">           async: false,  </span><br><span class="line">           error: function(request) &#123;  //失败的话</span><br><span class="line">                alert(&quot;Connection error&quot;);  </span><br><span class="line">           &#125;,  </span><br><span class="line">           success: function(data) &#123;  //成功</span><br><span class="line">                alert(data);  //就将返回的数据显示出来</span><br><span class="line">                window.location.href=&quot;跳转页面&quot;  </span><br><span class="line">           &#125;  </span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2017/07/23/FirstTerm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1395,163 +1890,13 @@ layerOpen(&apos;web/store/add&apos;,&apos;添加店铺信息&apos;,&apos;670px;&
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2016/07/23/AJAX/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫丹丹">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="闫丹丹的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2016/07/23/AJAX/" itemprop="url">AJAX</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-23T10:44:49+08:00">
-                2016-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>AJAX<br>Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。<br>AJAX 不是新的编程语言，而是一种使用现有标准的新方法。<br>AJAX 是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下。AJAX可以更新部分页面，而不需要整个刷新，从而提升用户体验。</p>
-<p>XMLHttpRequest 对象<br>是Ajax的核心，所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）。<br>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
-<p>创建方法：<br>var xhr = new XMLHttpRequest();</p>
-<p>常用方法：<br>open(GET/POST,URL地址,true/false) 打开连接<br>true和false代表异步或同步。<br>同步表示需要等待服务器响应后才能执行后面的代码<br>异步表示不需要等待服务器响应，响应后会进行通知<br>推荐使用异步方式。<br>send(String) 发送请求<br>如果是POST方法需要填写请求参数，如：name=zhangage=20<br>如果是Get方法参数可以不写<br>onreadystatechange事件回调，监听连接状态改变<br>用法：<br>onreadystatechange = function(){…};<br>常用属性：<br>readyState 连接状态<br>ajax共有5种状态：<br>状态<br>名称<br>描述<br>0<br>Uninitialized<br>初始化状态。XMLHttpRequest 对象已创建或已被 abort() 方法重置。<br>1<br>Open<br>open() 方法已调用，但是 send() 方法未调用。请求还没有被发送。<br>2<br>Sent<br>Send() 方法已调用，HTTP 请求已发送到 Web 服务器。未接收到响应。<br>3<br>Receiving<br>所有响应头部都已经接收到。响应体开始接收但未完成。<br>4<br>Loaded<br>HTTP 响应已经完全接收。<br>responseText 服务器响应文本内容<br>status 响应码、如：200、404、500等</p>
-<p>案例：使用ajax和Servlet进行交互<br>html<br>head<br>meta http-equiv=Content-Type content=text/html; charset=UTF-8<br>titleInsert title here/title<br>script type=text/javascript src=js/jquery-3.3.1.js/script<br>script type=text/javascript<br>$(function(){<br>$(#div1).click(function(){<br>//创建XMLHttpRequest对象<br>var xhr = new XMLHttpRequest();<br>//打开连接<br>xhr.open(GET,ajax.do?name=张三,true);<br>//发送请求<br>xhr.send(null);<br>//监听状态改变事件<br>xhr.onreadystatechange = function(){<br>console.log(状态：+xhr.readyState);<br>if(xhr.readyState == 4 xhr.status == 200){<br>//更新页面内容<br>$(#div1).text(xhr.responseText);<br>}<br>};<br>});<br>});<br>/script<br>/head<br>body<br>div id=div1点击我连接服务器/div<br>/body<br>/html</p>
-<p>@WebServlet(/ajax.do)<br>public class AjaxServlet extends HttpServlet{</p>
-<p>@Override<br>protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {<br>resp.setContentType(text/html;charset=UTF-8);<br>//处理请求的中文乱码<br>String name = req.getParameter(name);<br>name = new String(name.getBytes(ISO-8859-1),UTF-8);<br>//给ajax客户端发送数据<br>resp.getWriter().println(你好！！+name+,我是服务器！！);<br>}<br>}</p>
-<p>JQuery中的Ajax函数：<br>除了原生的Ajax代码外，JQuery框架也封装了几个ajax函数，让我们能更容易地与服务器交互。<br>$.ajax<br>常用参数：<br>type 请求方法GET、POST<br>url 服务器地址（必须）<br>data 请求参数<br>async 是否异步true，false<br>success 正常情况调用函数<br>error 错误情况调用函数<br>示例：<br>$.ajax({url:’check.do’,data:{tel:‘13001112222’},async:true,<br>success:function(data){<br>alert(‘服务器返回内容’+data);<br>},<br>error:function(){<br>alert(‘服务器操作出现错误’);<br>}<br>});</p>
-<p>$.post函数<br>以post方式和服务器交互<br>$.post(URL地址,{参数名:值},function(data){<br>回调代码<br>});<br>案例：<br>//使用jquery的post方法<br>function post(){<br>$.post(ajax.do,{name:’李四’},function(data){<br>$(#div1).text(data);<br>});<br>}</p>
-<p>$.get 函数<br>以get方式和服务器交互<br>$.get(URL地址?参数,function(data){<br>回调代码<br>});<br>案例：<br>//使用jquery的get方法<br>function get(){<br>$.get(ajax.do?name=赵六,function(data){<br>$(#div1).text(data);<br>});<br>}</p>
-<p>load函数<br>使用load方法，将ajax加载的内容直接插入到标签中<br>案例：<br>$(function(){<br>$(#div1).click(function(){<br>//post();<br>//get();<br>$(#div1).load(ajax.do?name=马九);<br>});<br>});</p>
-<p>应用场景：<br>用户注册时检查用户名是否存在<br>需求：用户注册时，填写手机号后，当输入框失去焦点时，对手机号进行服务器验证后在手机号输入框后面显示”用户名已存在或用户名可以使用;<br>思路：<br>1、在input的onblur事件中进行验证<br>2、通过ajax发送手机号给后台Servlet<br>3、Servlet对手机号进行数据库查询，返回是否存在的文字给ajax<br>4、ajax收到返回文字后，显示到标签上</p>
-<p>总结：Ajax能够让浏览器和服务器进行交互，并且在不刷新页面的情况下对网页内容进行更新，大大提高了用户体验，通过Ajax技术能够构建交互性极强的Web应用程序。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1599,7 +1944,7 @@ layerOpen(&apos;web/store/add&apos;,&apos;添加店铺信息&apos;,&apos;670px;&
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1610,7 +1955,7 @@ layerOpen(&apos;web/store/add&apos;,&apos;添加店铺信息&apos;,&apos;670px;&
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
