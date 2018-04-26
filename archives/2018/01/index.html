@@ -80,17 +80,13 @@
 
 
 
-<meta name="description" content="贪心算法解决背包问题">
-<meta property="og:type" content="article">
-<meta property="og:title" content="贪心算法解决背包问题">
-<meta property="og:url" content="https://github.com/dandan98/blog/2018/04/23/贪心算法解决背包问题/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="闫丹丹的博客">
+<meta property="og:url" content="https://github.com/dandan98/blog/archives/2018/01/index.html">
 <meta property="og:site_name" content="闫丹丹的博客">
-<meta property="og:description" content="贪心算法解决背包问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T11:04:13.753Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="贪心算法解决背包问题">
-<meta name="twitter:description" content="贪心算法解决背包问题">
+<meta name="twitter:title" content="闫丹丹的博客">
 
 
 
@@ -120,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/dandan98/blog/2018/04/23/贪心算法解决背包问题/"/>
+  <link rel="canonical" href="https://github.com/dandan98/blog/archives/2018/01/"/>
 
 
 
 
 
-  <title>贪心算法解决背包问题 | 闫丹丹的博客</title>
+  <title>归档 | 闫丹丹的博客</title>
   
 
 
@@ -145,7 +141,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right page-archive">
     <div class="headband"></div>
     <a href="https://github.com/dandan98/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
@@ -261,271 +257,111 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        嗯..! 目前共计 18 篇日志。 继续努力。
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2018/04/23/贪心算法解决背包问题/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫丹丹">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="闫丹丹的博客">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/blog/2018/01/10/Term3/" itemprop="url">
+              
+                <span itemprop="name">校园博客系统</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">贪心算法解决背包问题</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T20:44:49+08:00">
-                2018-04-23
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-10T10:40:40+08:00"
+              content="2018-01-10" >
+          01-10
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>贪心算法解决背包问题<br><a id="more"></a><br><code>`</code></p>
-<p>#include “stdafx.h”</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#define MAXSIZE 10 //假设物体总数</p>
-<p>#define M 20 //背包的容量</p>
-<p>//算法核心，贪心算法<br>void GREEDY(float dzw[], float x[], int sortResult[], int n)<br>{</p>
-<pre><code>float BCaption = M;
-int i = 0;
-int temp = 0;
-for (i = 0; i &lt; n; i++)//准备输出结果
-{
-    x[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    temp = sortResult[i];//得到取物体的顺序
-    if (dzw[temp] &gt; BCaption ) break;
-
-    x[temp] = 1;//若合适则取出
-    BCaption -= dzw[temp];//背包容量改变
-}
-if (i &lt;= n)//使背包充满
-{
-    x[temp] = BCaption  / dzw[temp];
-}
-return;
-</code></pre><p>}</p>
-<p>void sort(float tempArray[], int sortResult[], int n)<br>{</p>
-<pre><code>int i = 0, j = 0;
-int index = 0, k = 0;
-for (i = 0; i &lt; n; i++)//对映射数组赋初值0
-{
-    sortResult[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    float temp = tempArray[i];
-    index = i;
-    //找到最大的效益并保存此时的下标
-    for (j = 0; j &lt; n; j++)
-    {
-        if ((temp &lt; tempArray[j]) &amp;&amp; (sortResult[j] == 0))
-        {
-            temp = tempArray[j];
-            index = j;
-        }
-    }
-    if (sortResult[index] == 0)
-    {
-        sortResult[index] = ++k;
-    }
-}
-//修改效益最低的sortResult[i]标记
-for (i = 0; i &lt; n; i++)
-{
-    if (sortResult[i] == 0)
-    {
-        sortResult[i] = ++k;
-    }
-}
-return;
-</code></pre><p>}<br>//得到本算法的所有输入信息<br>void getData(float djz[], float dzw[], int *n)<br>{</p>
-<pre><code>int i = 0;
-printf(&quot;请输入物品的种类个数: &quot;);
-scanf(&quot;%d&quot;, n);
-printf(&quot;请输入各物品种类的单位价值 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-    {
-        scanf(&quot;%f&quot;, &amp;djz[i]);
-    }
-printf(&quot;请输入各物品种类的重量 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-{
-    scanf(&quot;%f&quot;, &amp;dzw[i]);//输入各种类的各个总重量
-}
-return;
-</code></pre><p>}</p>
-<p>void output(float x[], int n)<br>{</p>
-<pre><code>int i;
-printf(&quot;\n\nafter arithmetic data: advise method\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;x[%d]\t&quot;, i);
-}
-printf(&quot;\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;%2.3f\t&quot;, x[i]);
-}
-return;
-</code></pre><p>}<br>int main()<br>{</p>
-<pre><code>float djz[MAXSIZE], dzw[MAXSIZE], x[MAXSIZE];
-int i = 0, n = 0;
-int sortResult[MAXSIZE];
-getData(djz, dzw, &amp;n);
-for (i = 0; i &lt; n; i++)
-{
-    x[i] = djz[i] / dzw[i];
-}
-sort(x, sortResult, n);
-GREEDY(dzw, x, sortResult, n);
-output(x, n);
-system(&quot;pause&quot;);
-</code></pre><p>}</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2018/04/23/hello-world/" rel="next" title="xx页面">
-                <i class="fa fa-chevron-left"></i> xx页面
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/04/23/hello-world-1/" rel="prev" title="hello,world">
-                hello,world <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/2018/01/08/Term4/" itemprop="url">
+              
+                <span itemprop="name">仿网易严选购物系统</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-08T19:00:40+08:00"
+              content="2018-01-08" >
+          01-08
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -533,10 +369,6 @@ system(&quot;pause&quot;);
 
 
           
-
-  
-
-
 
         </div>
         
@@ -754,10 +586,6 @@ system(&quot;pause&quot;);
   
 
   
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

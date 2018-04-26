@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="贪心算法解决背包问题">
+<meta name="description" content="2017年10月-2018年1月参与课程设计校园博客系统的设计与开发，主要负责前端界面的设计与代码编写。该系统主要包括注册登陆，博客及文章检索查询，个人中心，文章管理等五个模块">
 <meta property="og:type" content="article">
-<meta property="og:title" content="贪心算法解决背包问题">
-<meta property="og:url" content="https://github.com/dandan98/blog/2018/04/23/贪心算法解决背包问题/index.html">
+<meta property="og:title" content="校园博客系统">
+<meta property="og:url" content="https://github.com/dandan98/blog/2018/01/10/Term3/index.html">
 <meta property="og:site_name" content="闫丹丹的博客">
-<meta property="og:description" content="贪心算法解决背包问题">
+<meta property="og:description" content="2017年10月-2018年1月参与课程设计校园博客系统的设计与开发，主要负责前端界面的设计与代码编写。该系统主要包括注册登陆，博客及文章检索查询，个人中心，文章管理等五个模块">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T11:04:13.753Z">
+<meta property="og:updated_time" content="2018-04-26T11:18:18.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="贪心算法解决背包问题">
-<meta name="twitter:description" content="贪心算法解决背包问题">
+<meta name="twitter:title" content="校园博客系统">
+<meta name="twitter:description" content="2017年10月-2018年1月参与课程设计校园博客系统的设计与开发，主要负责前端界面的设计与代码编写。该系统主要包括注册登陆，博客及文章检索查询，个人中心，文章管理等五个模块">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/dandan98/blog/2018/04/23/贪心算法解决背包问题/"/>
+  <link rel="canonical" href="https://github.com/dandan98/blog/2018/01/10/Term3/"/>
 
 
 
 
 
-  <title>贪心算法解决背包问题 | 闫丹丹的博客</title>
+  <title>校园博客系统 | 闫丹丹的博客</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2018/04/23/贪心算法解决背包问题/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dandan98/blog/blog/2018/01/10/Term3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="闫丹丹">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">贪心算法解决背包问题</h1>
+          <h1 class="post-title" itemprop="name headline">校园博客系统</h1>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T20:44:49+08:00">
-                2018-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T10:40:40+08:00">
+                2018-01-10
               </time>
             
 
@@ -327,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/blog/categories/项目经历/" itemprop="url" rel="index">
+                    <span itemprop="name">项目经历</span>
                   </a>
                 </span>
 
@@ -364,111 +364,7 @@
       
 
       
-        <p>贪心算法解决背包问题<br><a id="more"></a><br><code>`</code></p>
-<p>#include “stdafx.h”</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#define MAXSIZE 10 //假设物体总数</p>
-<p>#define M 20 //背包的容量</p>
-<p>//算法核心，贪心算法<br>void GREEDY(float dzw[], float x[], int sortResult[], int n)<br>{</p>
-<pre><code>float BCaption = M;
-int i = 0;
-int temp = 0;
-for (i = 0; i &lt; n; i++)//准备输出结果
-{
-    x[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    temp = sortResult[i];//得到取物体的顺序
-    if (dzw[temp] &gt; BCaption ) break;
-
-    x[temp] = 1;//若合适则取出
-    BCaption -= dzw[temp];//背包容量改变
-}
-if (i &lt;= n)//使背包充满
-{
-    x[temp] = BCaption  / dzw[temp];
-}
-return;
-</code></pre><p>}</p>
-<p>void sort(float tempArray[], int sortResult[], int n)<br>{</p>
-<pre><code>int i = 0, j = 0;
-int index = 0, k = 0;
-for (i = 0; i &lt; n; i++)//对映射数组赋初值0
-{
-    sortResult[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    float temp = tempArray[i];
-    index = i;
-    //找到最大的效益并保存此时的下标
-    for (j = 0; j &lt; n; j++)
-    {
-        if ((temp &lt; tempArray[j]) &amp;&amp; (sortResult[j] == 0))
-        {
-            temp = tempArray[j];
-            index = j;
-        }
-    }
-    if (sortResult[index] == 0)
-    {
-        sortResult[index] = ++k;
-    }
-}
-//修改效益最低的sortResult[i]标记
-for (i = 0; i &lt; n; i++)
-{
-    if (sortResult[i] == 0)
-    {
-        sortResult[i] = ++k;
-    }
-}
-return;
-</code></pre><p>}<br>//得到本算法的所有输入信息<br>void getData(float djz[], float dzw[], int *n)<br>{</p>
-<pre><code>int i = 0;
-printf(&quot;请输入物品的种类个数: &quot;);
-scanf(&quot;%d&quot;, n);
-printf(&quot;请输入各物品种类的单位价值 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-    {
-        scanf(&quot;%f&quot;, &amp;djz[i]);
-    }
-printf(&quot;请输入各物品种类的重量 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-{
-    scanf(&quot;%f&quot;, &amp;dzw[i]);//输入各种类的各个总重量
-}
-return;
-</code></pre><p>}</p>
-<p>void output(float x[], int n)<br>{</p>
-<pre><code>int i;
-printf(&quot;\n\nafter arithmetic data: advise method\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;x[%d]\t&quot;, i);
-}
-printf(&quot;\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;%2.3f\t&quot;, x[i]);
-}
-return;
-</code></pre><p>}<br>int main()<br>{</p>
-<pre><code>float djz[MAXSIZE], dzw[MAXSIZE], x[MAXSIZE];
-int i = 0, n = 0;
-int sortResult[MAXSIZE];
-getData(djz, dzw, &amp;n);
-for (i = 0; i &lt; n; i++)
-{
-    x[i] = djz[i] / dzw[i];
-}
-sort(x, sortResult, n);
-GREEDY(dzw, x, sortResult, n);
-output(x, n);
-system(&quot;pause&quot;);
-</code></pre><p>}</p>
+        <p>2017年10月-2018年1月参与课程设计校园博客系统的设计与开发，主要负责前端界面的设计与代码编写。该系统主要包括注册登陆，博客及文章检索查询，个人中心，文章管理等五个模块<br><a id="more"></a><br>责任描述：<br>1、整理整个项目内容，分配工作，给出公共部分样式代码；<br>2、掌握了Bootstrap框架的使用，了解了浏览器兼容性问题，并掌握了解决方法<br>3、了解了CSS盒子模型，掌握了JQuery的使用，使用jQuery进行前端逻辑功能的实现，进行手动刷新和自动刷新；<br>4、使用Amuze_UI、LayUI写出网页各种特效，如轮播图和导航栏；<br>5、对各大主流浏览器进行兼容性处理，查询bug并进行修复；<br>6、掌握了Ajax通信框架的使用，用JSP，Ajax框架进行前后端数据的交互；<br>7、掌握了svn版本控制工具的使用，能够进行快速有效的团队合作开发。</p>
 
       
     </div>
@@ -493,8 +389,8 @@ system(&quot;pause&quot;);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/04/23/hello-world/" rel="next" title="xx页面">
-                <i class="fa fa-chevron-left"></i> xx页面
+              <a href="/blog/2018/01/08/Term4/" rel="next" title="仿网易严选购物系统">
+                <i class="fa fa-chevron-left"></i> 仿网易严选购物系统
               </a>
             
           </div>
@@ -503,8 +399,8 @@ system(&quot;pause&quot;);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2018/04/23/hello-world-1/" rel="prev" title="hello,world">
-                hello,world <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2018/02/22/SecondTerm/" rel="prev" title="GIS地理信息系统">
+                GIS地理信息系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
