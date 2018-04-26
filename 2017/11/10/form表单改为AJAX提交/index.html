@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="参考博客：http://www.cnblogs.com/bubbleStar/p/6060415.html 参考博客：http://blog.csdn.net/u011458469/article/details/48134581  一、form表单改成AJAX提交原来的form格式 12345678910111213141516171819202122&amp;lt;form action=&amp;quot;">
+<meta name="description" content="参考博客：http://www.cnblogs.com/bubbleStar/p/6060415.html 参考博客：http://blog.csdn.net/u011458469/article/details/48134581  一、form表单改成AJAX提交原来的form格式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="form表单改为AJAX提交">
 <meta property="og:url" content="https://github.com/dandan98/blog/2017/11/10/form表单改为AJAX提交/index.html">
 <meta property="og:site_name" content="闫丹丹的博客">
-<meta property="og:description" content="参考博客：http://www.cnblogs.com/bubbleStar/p/6060415.html 参考博客：http://blog.csdn.net/u011458469/article/details/48134581  一、form表单改成AJAX提交原来的form格式 12345678910111213141516171819202122&amp;lt;form action=&amp;quot;">
+<meta property="og:description" content="参考博客：http://www.cnblogs.com/bubbleStar/p/6060415.html 参考博客：http://blog.csdn.net/u011458469/article/details/48134581  一、form表单改成AJAX提交原来的form格式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T02:54:29.524Z">
+<meta property="og:updated_time" content="2018-04-26T11:00:08.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="form表单改为AJAX提交">
-<meta name="twitter:description" content="参考博客：http://www.cnblogs.com/bubbleStar/p/6060415.html 参考博客：http://blog.csdn.net/u011458469/article/details/48134581  一、form表单改成AJAX提交原来的form格式 12345678910111213141516171819202122&amp;lt;form action=&amp;quot;">
+<meta name="twitter:description" content="参考博客：http://www.cnblogs.com/bubbleStar/p/6060415.html 参考博客：http://blog.csdn.net/u011458469/article/details/48134581  一、form表单改成AJAX提交原来的form格式">
 
 
 
@@ -228,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
-            技术
+            学习笔记
           </a>
         </li>
       
@@ -365,7 +365,7 @@
 
       
         <p>参考博客：<a href="http://www.cnblogs.com/bubbleStar/p/6060415.html" target="_blank" rel="noopener">http://www.cnblogs.com/bubbleStar/p/6060415.html</a> <br><br>参考博客：<a href="http://blog.csdn.net/u011458469/article/details/48134581" target="_blank" rel="noopener">http://blog.csdn.net/u011458469/article/details/48134581</a> <br></p>
-<h6 id="一、form表单改成AJAX提交"><a href="#一、form表单改成AJAX提交" class="headerlink" title="一、form表单改成AJAX提交"></a>一、form表单改成AJAX提交</h6><p>原来的form格式</p>
+<h6 id="一、form表单改成AJAX提交"><a href="#一、form表单改成AJAX提交" class="headerlink" title="一、form表单改成AJAX提交"></a>一、form表单改成AJAX提交</h6><p>原来的form格式<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;xxx&quot; method=&quot;get&quot;&gt;  //action的值是请求的url地址</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;name&quot;&gt;姓名&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;name&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;jobNumber&quot;&gt;工号&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;number&quot; class=&quot;form-control&quot; name=&quot;jobNumber&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;nation&quot;&gt;民族&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;nation&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;gender&quot;&gt;性别&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;gender&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;modal-footer&quot;&gt;</span><br><span class="line">    　&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;</span><br><span class="line">　　　&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;提交&lt;/button&gt;　</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
 <p>  修改成AJAX提交的流程</p>
 <p>将form元素的属性action和method去掉，添加id=”myForm”,form元素就变为<form id="myForm"></form></p>

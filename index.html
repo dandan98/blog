@@ -225,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
-            技术
+            学习笔记
           </a>
         </li>
       
@@ -604,113 +604,14 @@
 
       
         
-          
-            <p>#include “stdafx.h”</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#define MAXSIZE 10 //假设物体总数</p>
-<p>#define M 20 //背包的容量</p>
-<p>//算法核心，贪心算法<br>void GREEDY(float dzw[], float x[], int sortResult[], int n)<br>{</p>
-<pre><code>float BCaption = M;
-int i = 0;
-int temp = 0;
-for (i = 0; i &lt; n; i++)//准备输出结果
-{
-    x[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    temp = sortResult[i];//得到取物体的顺序
-    if (dzw[temp] &gt; BCaption ) break;
-
-    x[temp] = 1;//若合适则取出
-    BCaption -= dzw[temp];//背包容量改变
-}
-if (i &lt;= n)//使背包充满
-{
-    x[temp] = BCaption  / dzw[temp];
-}
-return;
-</code></pre><p>}</p>
-<p>void sort(float tempArray[], int sortResult[], int n)<br>{</p>
-<pre><code>int i = 0, j = 0;
-int index = 0, k = 0;
-for (i = 0; i &lt; n; i++)//对映射数组赋初值0
-{
-    sortResult[i] = 0;
-}
-for (i = 0; i &lt; n; i++)
-{
-    float temp = tempArray[i];
-    index = i;
-    //找到最大的效益并保存此时的下标
-    for (j = 0; j &lt; n; j++)
-    {
-        if ((temp &lt; tempArray[j]) &amp;&amp; (sortResult[j] == 0))
-        {
-            temp = tempArray[j];
-            index = j;
-        }
-    }
-    if (sortResult[index] == 0)
-    {
-        sortResult[index] = ++k;
-    }
-}
-//修改效益最低的sortResult[i]标记
-for (i = 0; i &lt; n; i++)
-{
-    if (sortResult[i] == 0)
-    {
-        sortResult[i] = ++k;
-    }
-}
-return;
-</code></pre><p>}<br>//得到本算法的所有输入信息<br>void getData(float djz[], float dzw[], int *n)<br>{</p>
-<pre><code>int i = 0;
-printf(&quot;请输入物品的种类个数: &quot;);
-scanf(&quot;%d&quot;, n);
-printf(&quot;请输入各物品种类的单位价值 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-    {
-        scanf(&quot;%f&quot;, &amp;djz[i]);
-    }
-printf(&quot;请输入各物品种类的重量 :\n&quot;);
-for (i = 0; i &lt; (*n); i++)
-{
-    scanf(&quot;%f&quot;, &amp;dzw[i]);//输入各种类的各个总重量
-}
-return;
-</code></pre><p>}</p>
-<p>void output(float x[], int n)<br>{</p>
-<pre><code>int i;
-printf(&quot;\n\nafter arithmetic data: advise method\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;x[%d]\t&quot;, i);
-}
-printf(&quot;\n&quot;);
-for (i = 0; i &lt; n; i++)
-{
-    printf(&quot;%2.3f\t&quot;, x[i]);
-}
-return;
-</code></pre><p>}<br>int main()<br>{</p>
-<pre><code>float djz[MAXSIZE], dzw[MAXSIZE], x[MAXSIZE];
-int i = 0, n = 0;
-int sortResult[MAXSIZE];
-getData(djz, dzw, &amp;n);
-for (i = 0; i &lt; n; i++)
-{
-    x[i] = djz[i] / dzw[i];
-}
-sort(x, sortResult, n);
-GREEDY(dzw, x, sortResult, n);
-output(x, n);
-system(&quot;pause&quot;);
-</code></pre><p>}</p>
-
-          
+          <p>贪心算法解决背包问题<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/04/23/贪心算法解决背包问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -991,10 +892,14 @@ system(&quot;pause&quot;);
 
       
         
-          
-            <p>2017年7月-2018年2月参加GIS地理信息系统的开发，该系统用于对机场周围建筑物是否符合净空标准进行计算，并将计算后的结果上报给各级管理员，主要包括信息录入，高大障碍物管理，用户管理，以及数据的导入导出。<br><img src="http://mybatis.github.io/images/mybatis-logo.png" alt="mybatis-spring"><br>1、熟练掌握了git的使用，能够进行快速高效的团队合作；<br>2、熟悉vue、easyUI、toast等前端框架和插件的使用；<br>3、掌握了批量文件上传的流程，可以自主进行文件上传操作，对于误传的文件进行有效的删除；<br>4、编写了设置地图不同区域颜色的代码；<br>5、对弹出框样式进行修改，有效的使弹出框具有透明度，优化系统界面；<br>6、熟练掌握解析Json数据Gson的使用。<br>7、进行系统的单元测试，并编写系统数据库说明，概要设计，详细设计，使用说明等相关文档。</p>
-
-          
+          <p>2017年7月-2018年2月参加GIS地理信息系统的开发，该系统用于对机场周围建筑物是否符合净空标准进行计算，并将计算后的结果上报给各级管理员，主要包括信息录入，高大障碍物管理，用户管理，以及数据的导入导出。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/02/22/SecondTerm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1133,46 +1038,14 @@ system(&quot;pause&quot;);
 
       
         
-          
-            <p>、<br><code>`</code><br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a> </p>
-<html xmlns="http://www.w3.org/1999/xhtml"><br><br><head><br><br><meta http-equiv="Content-Type" content="text/html; charset=gb2312"><br><br><title>弹出提示</title><br><br><style><br><br><em> {margin:0;padding:0;font-size:12px;}<br><br>html,body {height:100%;width:100%;}<br><br>#content {background:#f8f8f8;padding:30px;height:100%;}<br><br>#content a {font-size:30px;color:#369;font-weight:700;}<br><br>#alert {border:1px solid #369;width:300px;height:150px;background:#e2ecf5;z-index:1000;position:absolute;display:none;}<br><br>#alert h4 {height:20px;background:#369;color:#fff;padding:5px 0 0 5px;}<br><br>#alert h4 span {float:left;}<br><br>#alert h4 span#close {margin-left:210px;font-weight:500;cursor:pointer;}<br><br>#alert p {padding:12px 0 0 30px;}<br><br>#alert p input {width:120px;margin-left:20px;}<br><br>#alert p input.myinp {border:1px solid #ccc;height:16px;}<br><br>#alert p input.sub {width:60px;margin-left:30px;}<br><br></style><br><br></head><br><br><body><br><br>    <div id="content"><br><br>    <a href="#">注册</a><br><br>    <input type="checkbox" title="123" value="213" xml:lang="456"><br><br>    </div><br><br><br><br>    <div id="alert"><br><br>    <h4><span>现在注册</span><span id="close">关闭</span></h4><br><br>    <p><label>用户名</label><input type="text" class="myinp" onmouseover="this.style.border='1px solid #f60'" onfoucs="this.style.border='1px solid #f60'" onblur="this.style.border='1px solid #ccc'"></p><br><br>    <p><label>密　码</label><input type="password" class="myinp" onmouseover="this.style.border='1px solid #f60'" onfoucs="this.style.border='1px solid #f60'" onblur="this.style.border='1px solid #ccc'"></p><br><br>    <p><input type="submit" value="注册" class="sub"><input type="reset" value="重置" class="sub"></p><br><br>    </div><br><br><br><br>    <script type="text/javascript"><br><br>    var myAlert = document.getElementById(“alert”);<br><br>    var reg = document.getElementById(“content”).getElementsByTagName(“a”)[0];<br><br>    var mClose = document.getElementById(“close”);<br><br>    reg.onclick = function()<br><br>    {<br><br>    myAlert.style.display = “block”;<br><br>    myAlert.style.position = “absolute”;<br><br>    myAlert.style.top = “50%”;<br><br>    myAlert.style.left = “50%”;<br><br>    myAlert.style.marginTop = “-75px”;<br><br>    myAlert.style.marginLeft = “-150px”;<br><br>    mybg = document.createElement(“div”);<br><br>    mybg.setAttribute(“id”,”mybg”);<br><br>    mybg.style.background = “#000”;<br><br>    mybg.style.width = “100%”;<br><br>    mybg.style.height = “100%”;<br><br>    mybg.style.position = “absolute”;<br><br>    mybg.style.top = “0”;<br><br>    mybg.style.left = “0”;<br><br>    mybg.style.zIndex = “500”;<br><br>    mybg.style.opacity = “0.3”;<br><br>    mybg.style.filter = “Alpha(opacity=30)”;<br><br>    document.body.appendChild(mybg);<br><br>    document.body.style.overflow = “hidden”;<br><br>    }<br><br>    mClose.onclick = function()<br><br>    {<br><br>    myAlert.style.display = “none”;<br><br>    mybg.style.display = “none”;<br><br>    }<br><br>     //拖动<br><br>    var posX;<br><br>    var posY;<br><br>    document.getElementById(“alert”).onmousedown=function(e)<br><br>        {<br><br>        if(!e) e = window.event;<br><br>        var divLeft=myAlert.style.left;<br><br>        var divTop=myAlert.style.top;<br><br>        if(divLeft.indexOf(‘%’)!=-1)<br><br>            divLeft=document.body.clientWidth</em>divLeft.substring(0,divLeft.indexOf(‘%’))/100;<br><br>        else<br><br>            divLeft=parseInt(divLeft);<br><br>        if(divTop.indexOf(‘%’)!=-1)<br><br>            divTop=document.body.clientHeight*divTop.substring(0,divTop.indexOf(‘%’))/100;<br><br>        else<br><br>            divTop=parseInt(divTop);<br><br>        posX = e.clientX - parseInt(divLeft);<br><br>        posY = e.clientY - parseInt(divTop);<br><br>        document.onmousemove = mousemove;<br><br>        }<br><br><br><br>    document.onmouseup = function()<br><br>    {<br><br>        document.onmousemove = null;<br><br>    }<br><br>    function mousemove(ev)<br><br>    {<br><br>        if(ev==null) ev = window.event;<br><br>        myAlert.style.left = (ev.clientX - posX) + “px”;<br><br>        myAlert.style.top = ev.clientY - posY + “px”;<br><br>    }<br><br><br><br>     function closeProc(){<br><br>        message_box.style.visibility=’hidden’;<br><br>        procbg.style.visibility = “hidden”;<br><br>     }<br><br>    </script><br><br></body><br><br></html>
-
-<hr>
-<p> var myAlert = document.getElementById(“Formula”);<br>    function alphaBg()<br>    {<br>       myAlert.style.display = “block”;<br>       myAlert.style.position = “absolute”;<br>       myAlert.style.top = “50%”;<br>       myAlert.style.left = “50%”;<br>       myAlert.style.marginTop = “-75px”;<br>       myAlert.style.marginLeft = “-150px”;<br>       mybg = document.createElement(“div”);<br>       mybg.setAttribute(“id”,”mybg”);<br>       mybg.style.background = “#000”;<br>       mybg.style.width = “100%”;<br>       mybg.style.height = “100%”;<br>       mybg.style.position = “absolute”;<br>       mybg.style.top = “0”;<br>       mybg.style.left = “0”;<br>       mybg.style.zIndex = “500”;<br>       mybg.style.opacity = “0.0”;<br>       mybg.style.filter = “Alpha(opacity=0)”;<br>       document.body.appendChild(mybg);<br>       document.body.style.overflow = “hidden”;<br>    }<br>    function closeAlphe(){<br>       myAlert.style.display = “none”;</p>
-<pre><code>     mybg.style.display = &quot;none&quot;;
-
-}
-var posX;
-var posY; 
-document.getElementById(&quot;Formula&quot;).onmousedown=function(e)
-{
-   if(!e) e = window.event;  
-   var divLeft=myAlert.style.left;
-   var divTop=myAlert.style.top;
-   if(divLeft.indexOf(&apos;%&apos;)!=-1)
-     divLeft=document.body.clientWidth*divLeft.substring(0,divLeft.indexOf(&apos;%&apos;))/100;
-   else
-     divLeft=parseInt(divLeft);
-   if(divTop.indexOf(&apos;%&apos;)!=-1)
-     divTop=document.body.clientHeight*divTop.substring(0,divTop.indexOf(&apos;%&apos;))/100;
-   else
-     divTop=parseInt(divTop);
-   posX = e.clientX - parseInt(divLeft);
-   posY = e.clientY - parseInt(divTop);
-   document.onmousemove = mousemove;
-}
-document.onmouseup = function()
-{
-  document.onmousemove = null;
-}
-function mousemove(ev)
-{
-  if(ev==null) ev = window.event;
-  myAlert.style.left = (ev.clientX - posX) + &quot;px&quot;; 
-  myAlert.style.top = ev.clientY - posY + &quot;px&quot;;
-}
-</code></pre>
-          
+          <p>JS弹出可移动的DIV对话框透明遮罩效果<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017/12/20/JS弹出可移动的DIV对话框透明遮罩效果/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1311,37 +1184,14 @@ function mousemove(ev)
 
       
         
-          
-            <h4 id="上传之前的预览"><a href="#上传之前的预览" class="headerlink" title="上传之前的预览"></a>上传之前的预览</h4><h6 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h6><p>先来说说图片上传之前的预览问题。这里主要采用了HTML5中的FileReader对象来实现，关于FileReader对象，如果小伙伴们不了解，可以查看这篇博客HTML5学习之FileReader接口。我们来看看实现方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Ajax上传文件&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;jquery-3.2.1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">用户名：&lt;input id=&quot;username&quot; type=&quot;text&quot;&gt;&lt;br&gt;</span><br><span class="line">用户图像：&lt;input id=&quot;userface&quot; type=&quot;file&quot; onchange=&quot;preview(this)&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;div id=&quot;preview&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btnClick&quot; value=&quot;上传&quot;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(&quot;#btnClick&quot;).click(function () &#123;</span><br><span class="line">        var formData = new FormData();</span><br><span class="line">        formData.append(&quot;username&quot;, $(&quot;#username&quot;).val());</span><br><span class="line">        formData.append(&quot;file&quot;, $(&quot;#userface&quot;)[0].files[0]);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: &apos;/fileupload&apos;,</span><br><span class="line">            type: &apos;post&apos;,</span><br><span class="line">            data: formData,</span><br><span class="line">            processData: false,</span><br><span class="line">            contentType: false,</span><br><span class="line">            success: function (msg) &#123;</span><br><span class="line">                alert(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    function preview(file) &#123;</span><br><span class="line">        var prevDiv = document.getElementById(&apos;preview&apos;);</span><br><span class="line">        if (file.files &amp;&amp; file.files[0]) &#123;</span><br><span class="line">            var reader = new FileReader();</span><br><span class="line">            reader.onload = function (evt) &#123;</span><br><span class="line">                prevDiv.innerHTML = &apos;&lt;img src=&quot;&apos; + evt.target.result + &apos;&quot; /&gt;&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            reader.readAsDataURL(file.files[0]);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            prevDiv.innerHTML = &apos;&lt;div class=&quot;img&quot; style=&quot;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\&apos;&apos; + file.value + &apos;\&apos;&quot;&gt;&lt;/div&gt;&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这里对于支持FileReader的浏览器直接使用FileReader来实现，不支持FileReader的浏览器则采用微软的滤镜来实现（注意给图片上传的input标签设置onchange函数）。 <br></p>
-<p>实现效果如下： </p>
-<p><img src="https://img-blog.csdn.net/20170825184056537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjcwMjU0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h6 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h6><p>除了这种方式之外我们也可以采用网上现成的一个jQuery实现的方式。这里主要参考了这里。 <br><br>不过由于原文年代久远，里边使用的$.browser.msie从jQuery1.9就被移除掉了，所以如果我们想使用这个得做一点额外的处理，我修改后的uploadPreview.js文件内容如下： <br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">jQuery.browser=&#123;&#125;;(function()&#123;jQuery.browser.msie=false; jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)./))&#123; jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;&#125;&#125;)();</span><br><span class="line">jQuery.fn.extend(&#123;</span><br><span class="line">    uploadPreview: function (opts) &#123;</span><br><span class="line">        var _self = this,</span><br><span class="line">            _this = $(this);</span><br><span class="line">        opts = jQuery.extend(&#123;</span><br><span class="line">            Img: &quot;ImgPr&quot;,</span><br><span class="line">            Width: 100,</span><br><span class="line">            Height: 100,</span><br><span class="line">            ImgType: [&quot;gif&quot;, &quot;jpeg&quot;, &quot;jpg&quot;, &quot;bmp&quot;, &quot;png&quot;],</span><br><span class="line">            Callback: function () &#123;&#125;</span><br><span class="line">        &#125;, opts || &#123;&#125;);</span><br><span class="line">        _self.getObjectURL = function (file) &#123;</span><br><span class="line">            var url = null;</span><br><span class="line">            if (window.createObjectURL != undefined) &#123;</span><br><span class="line">                url = window.createObjectURL(file)</span><br><span class="line">            &#125; else if (window.URL != undefined) &#123;</span><br><span class="line">                url = window.URL.createObjectURL(file)</span><br><span class="line">            &#125; else if (window.webkitURL != undefined) &#123;</span><br><span class="line">                url = window.webkitURL.createObjectURL(file)</span><br><span class="line">            &#125;</span><br><span class="line">            return url</span><br><span class="line">        &#125;;</span><br><span class="line">        _this.change(function () &#123;</span><br><span class="line">            if (this.value) &#123;</span><br><span class="line">                if (!RegExp(&quot;\.(&quot; + opts.ImgType.join(&quot;|&quot;) + &quot;)$&quot;, &quot;i&quot;).test(this.value.toLowerCase())) &#123;</span><br><span class="line">                    alert(&quot;选择文件错误,图片类型必须是&quot; + opts.ImgType.join(&quot;，&quot;) + &quot;中的一种&quot;);</span><br><span class="line">                    this.value = &quot;&quot;;</span><br><span class="line">                    return false</span><br><span class="line">                &#125;</span><br><span class="line">                if ($.browser.msie) &#123;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        $(&quot;#&quot; + opts.Img).attr(&apos;src&apos;, _self.getObjectURL(this.files[0]))</span><br><span class="line">                    &#125; catch (e) &#123;</span><br><span class="line">                        var src = &quot;&quot;;</span><br><span class="line">                        var obj = $(&quot;#&quot; + opts.Img);</span><br><span class="line">                        var div = obj.parent(&quot;div&quot;)[0];</span><br><span class="line">                        _self.select();</span><br><span class="line">                        if (top != self) &#123;</span><br><span class="line">                            window.parent.document.body.focus()</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            _self.blur()</span><br><span class="line">                        &#125;</span><br><span class="line">                        src = document.selection.createRange().text;</span><br><span class="line">                        document.selection.empty();</span><br><span class="line">                        obj.hide();</span><br><span class="line">                        obj.parent(&quot;div&quot;).css(&#123;</span><br><span class="line">                            &apos;filter&apos;: &apos;progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)&apos;,</span><br><span class="line">                            &apos;width&apos;: opts.Width + &apos;px&apos;,</span><br><span class="line">                            &apos;height&apos;: opts.Height + &apos;px&apos;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        div.filters.item(&quot;DXImageTransform.Microsoft.AlphaImageLoader&quot;).src = src</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    $(&quot;#&quot; + opts.Img).attr(&apos;src&apos;, _self.getObjectURL(this.files[0]))</span><br><span class="line">                &#125;</span><br><span class="line">                opts.Callback()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>然后在我们的html文件中引入这个js文件即可： <br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Ajax上传文件&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;jquery-3.2.1.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;uploadPreview.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">用户名：&lt;input id=&quot;username&quot; type=&quot;text&quot;&gt;&lt;br&gt;</span><br><span class="line">用户图像：&lt;input id=&quot;userface&quot; type=&quot;file&quot; onchange=&quot;preview(this)&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;div&gt;&lt;img id=&quot;ImgPr&quot; width=&quot;200&quot; height=&quot;200&quot;/&gt;&lt;/div&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btnClick&quot; value=&quot;上传&quot;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(&quot;#btnClick&quot;).click(function () &#123;</span><br><span class="line">        var formData = new FormData();</span><br><span class="line">        formData.append(&quot;username&quot;, $(&quot;#username&quot;).val());</span><br><span class="line">        formData.append(&quot;file&quot;, $(&quot;#userface&quot;)[0].files[0]);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: &apos;/fileupload&apos;,</span><br><span class="line">            type: &apos;post&apos;,</span><br><span class="line">            data: formData,</span><br><span class="line">            processData: false,</span><br><span class="line">            contentType: false,</span><br><span class="line">            success: function (msg) &#123;</span><br><span class="line">                alert(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    $(&quot;#userface&quot;).uploadPreview(&#123;Img: &quot;ImgPr&quot;, Width: 120, Height: 120&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这里有如下几点需要注意： <br></p>
-<p>1.HTML页面中要引入我们自定义的uploadPreview.js文件  <br><br>2.预先定义好要显示预览图片的img标签，该标签要有id。  <br><br>3.查找到img标签然后调用uploadPreview函数 <br></p>
-<p>执行效果如下：  <br></p>
-<p><img src="https://img-blog.csdn.net/20170825190203757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjcwMjU0Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>Ajax上传图片文件</p>
-<p>Ajax上传图片文件就简单了，没有那么多方案，核心代码如下： <br></p>
-<pre><code>var formData = new FormData();
-formData.append(&quot;username&quot;, $(&quot;#username&quot;).val());
-formData.append(&quot;file&quot;, $(&quot;#userface&quot;)[0].files[0]);
-$.ajax({
-    url: &apos;/fileupload&apos;,
-    type: &apos;post&apos;,
-    data: formData,
-    processData: false,
-    contentType: false,
-    success: function (msg) {
-        alert(msg);
-    }
-});
-
-</code></pre><p>核心就是定义一个FormData对象，将要上传的数据包装到这个对象中去。然后在ajax上传数据的时候设置data属性就为formdata，processData属性设置为false，表示jQuery不要去处理发送的数据，然后设置contentType属性的值为false，表示不要设置请求头的contentType属性。OK，主要就是设置这三个，设置成功之后，其他的处理就和常规的ajax用法一致了。</p>
-
-          
+          <h4 id="上传之前的预览"><a href="#上传之前的预览" class="headerlink" title="上传之前的预览"></a>上传之前的预览</h4><h6 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h6><p>先来说说图片上传之前的预览问题。这里主要采用了HTML5中的FileReader对象来实现，关于FileReader对象，如果小伙伴们不了解，可以查看这篇博客HTML5学习之FileReader接口。我们来看看实现方式：<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017/11/25/Ajax上传图片以及上传之前先预览/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1480,16 +1330,15 @@ $.ajax({
 
       
         
-          
-            <p>参考博客：<a href="http://www.cnblogs.com/bubbleStar/p/6060415.html" target="_blank" rel="noopener">http://www.cnblogs.com/bubbleStar/p/6060415.html</a> <br><br>参考博客：<a href="http://blog.csdn.net/u011458469/article/details/48134581" target="_blank" rel="noopener">http://blog.csdn.net/u011458469/article/details/48134581</a> <br></p>
-<h6 id="一、form表单改成AJAX提交"><a href="#一、form表单改成AJAX提交" class="headerlink" title="一、form表单改成AJAX提交"></a>一、form表单改成AJAX提交</h6><p>原来的form格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;xxx&quot; method=&quot;get&quot;&gt;  //action的值是请求的url地址</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;name&quot;&gt;姓名&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;name&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;jobNumber&quot;&gt;工号&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;number&quot; class=&quot;form-control&quot; name=&quot;jobNumber&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;nation&quot;&gt;民族&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;nation&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label for=&quot;gender&quot;&gt;性别&lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;gender&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;modal-footer&quot;&gt;</span><br><span class="line">    　&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;</span><br><span class="line">　　　&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;提交&lt;/button&gt;　</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p>  修改成AJAX提交的流程</p>
-<p>将form元素的属性action和method去掉，添加id=”myForm”,form元素就变为<form id="myForm"></form></p>
-<p>将提交按钮的button的type=”submit”改为type=”button”，增加 id <br></p>
-<p>在js文件中写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#按键的id&quot;).click(function () &#123;</span><br><span class="line">   $.ajax(&#123;  </span><br><span class="line">           type: &quot;POST&quot;,   //提交的方法</span><br><span class="line">           url:&quot;/home/request&quot;, //提交的地址  </span><br><span class="line">           data:$(&apos;#fm&apos;).serialize(),// 序列化表单值  </span><br><span class="line">           async: false,  </span><br><span class="line">           error: function(request) &#123;  //失败的话</span><br><span class="line">                alert(&quot;Connection error&quot;);  </span><br><span class="line">           &#125;,  </span><br><span class="line">           success: function(data) &#123;  //成功</span><br><span class="line">                alert(data);  //就将返回的数据显示出来</span><br><span class="line">                window.location.href=&quot;跳转页面&quot;  </span><br><span class="line">           &#125;  </span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure></p>
-
-          
+          <p>参考博客：<a href="http://www.cnblogs.com/bubbleStar/p/6060415.html" target="_blank" rel="noopener">http://www.cnblogs.com/bubbleStar/p/6060415.html</a> <br><br>参考博客：<a href="http://blog.csdn.net/u011458469/article/details/48134581" target="_blank" rel="noopener">http://blog.csdn.net/u011458469/article/details/48134581</a> <br></p>
+<h6 id="一、form表单改成AJAX提交"><a href="#一、form表单改成AJAX提交" class="headerlink" title="一、form表单改成AJAX提交"></a>一、form表单改成AJAX提交</h6><p>原来的form格式<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017/11/10/form表单改为AJAX提交/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1628,11 +1477,14 @@ $.ajax({
 
       
         
-          
-            <p><img src="https://dandan98.github.io/blog/images/photo.jpg" alt="huqjwds"><br>2017年2月-2017年7月参加精准扶贫项目平板端Android系统的开发，该系统主要用于管理人员对各地方贫困户信息的采集以及存储，由于此类信息需要注意保密，所以需要进行断网安全存储。</p>
-<p>1、初次接触Android项目，学习并了解了Android开发流程，掌握了Android开发的MVP架构；<br>2、主要参与了前端代码的编写；<br>3、了解了Activity的生命周期；<br>4、熟练掌握了各类布局和控件的使用，和自定义View的流程；<br>5、熟悉json格式的数据存储与解析</p>
-
-          
+          <p>2017年2月-2017年7月参加精准扶贫项目平板端Android系统的开发，该系统主要用于管理人员对各地方贫困户信息的采集以及存储，由于此类信息需要注意保密，所以需要进行断网安全存储。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017/07/23/FirstTerm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1771,92 +1623,19 @@ $.ajax({
 
       
         
-          
-            <p>table表格操作</p>
-<p>html代码(注意里面的lay-filter)<br>有兴趣的朋友可以看看我之前写的layui前后台交互</p>
+          <p>table表格操作</p>
+<p>html代码(注意里面的lay-filter) </p>
 <blockquote>
 <p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"></p>
 <p><script type="text/javascript" src="static/layui/layui.js"></script></p>
-<p><table class="layui-hide" id="test" lay-filter="table"></table>‘</p>
-</blockquote>
-<p>js代码</p>
-<blockquote>
-<!-- layui的tpl表达式  位置可以任放 id对应的是下面的操作tool工具   这里记着lay-event这是layui事件捕获 -->
-<p><script type="text/html" id="toolBar"><br><a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="edit">&#xe642;</a><br><a class="layui-icon" style="font-size: 25px; color: #1AA094;" lay-event="del">&#xe640;</a></p>
-</blockquote>
-<blockquote>
-<p><script type="text/javascript"><br>layui.use([‘form’,’layer’,’table’,’upload’], function(){<br>    var table = layui.table<br>   ,form = layui.form,upload = layui.upload,layer=layui.layer;<br>  table.render({<br>   elem: ‘#test’<br>  ,url:’manager/store/list’<br> ,cellMinWidth: 80<br>,cols: [[<br> {type:’numbers’}<br>,{field:’storeName’, title:’店铺名’}<br>,{field:’userNickName’, title:’用户昵称’}<br>,{field:’address’, title: ‘地址’}<br>,{field:’phone’, title: ‘手机号码’}<br>,{field:’price’, title: ‘10张打印价格’, sort: true}<br>,{field:’likes’, title:’点赞数’, sort: true}<br>,{field:’pic’, title:’图片路径’}<br>,{field:’createTime’, title:’创建时间’, sort: true}<br>,{field:’mark’, title:’说明’}<br>,{fixed: ‘right’,title: ‘操作’, width:180, align:’center’, toolbar: &gt;’#toolBar’}  //绑定tpl表达式<br>]]<br>        ,page: true   //开启分页<br>        ,id: ‘testReload’  //这个id挺重要的  你对table做操作时候需要使用到  比如reload的时候<br>      });<br>      <!-- 这是表格查询的  这里根据店铺名和用户昵称还有手机号码查询  查询框自己任意放位置 
-           这里注意的方法是 table.reload('table的id',{});重新载入数据--><br>      var $ = layui.$, active = {<br>                reload: function(){<br>                    var storeName = $.trim($(‘#storeName’).val());<br>                    var userNickName = $.trim($(‘#userNickName’).val());<br>                    var phone = $(‘#phone’).val();<br>                    table.reload(‘testReload’, {<br>                        where: {<br>                            storeName: storeName<br>                            ,userNickName: userNickName<br>                            ,phone: phone<br>                        }<br>                    });<br>                }<br>            };<br>    //监听查看，删除、编辑按钮——–这里就是上面说的lay-event绑定<br>      table.on(‘tool(table)’, function(obj){<br>            var data = obj.data;<br>           if(obj.event === ‘del’){<br>              layer.confirm(‘真的删除行么’, function(index){<br>                  var json=eval(‘(‘+JSON.stringify(data)+’)’);//String转json<br>                  log(json[‘storeId’])<br>                  $.post(“manager/store/delete”,{“storeIds”:json[‘storeId’]},function(msg){<br>                      if(msg.code==0){<br>                          obj.del();<br>                          layer.close(index);<br>                      }else{<br>                          layer.msg(‘删除失败！’);<br>                      }<br>                  })<br>              });<br>              //编辑<br>            } else if(obj.event === ‘edit’){<br>                 var json=eval(‘(‘+JSON.stringify(data)+’)’);//String转json<br>                 layerOpen(‘web/store/add?storeId=’+json[‘storeId’],’编辑店铺信息’,’670px;’, ‘530px;’);<br>            }<br>          });<br>          <!-- 查询框中查询按钮click事件 最终调用的是上面的那个active方法--><br>      $(‘.demoTable .layui-btn’).on(‘click’, function(){<br>            var type = $(this).data(‘type’);<br>            active[type] ? active[type].call(this) : ‘’;<br>          });<br>      //这里没什么  就是我自己新增的一个添加页面按钮 layerOpen是自己封装的方法<br>      $(‘.demoTable #add’).on(‘click’, function(){</p>
-</blockquote>
-<pre><code>return aler(&quot;非法操作,正式运行下不会有添加功能,你可以尝试解锁&quot;);
-layerOpen(&apos;web/store/add&apos;,&apos;添加店铺信息&apos;,&apos;670px;&apos;, &apos;530px;&apos;);
-});
-</code></pre><p>})<br> </script></p>
-<p>layui的form表单操作</p>
-<p>html代码</p>
-<p><link rel="stylesheet" href="static/layui/css/layui.css" media="all"><br> <script type="text/javascript" src="static/layui/layui.js"></script></p>
-<form class="layui-form layui-form-pane" action="store/updatestore" method="post"><br><input id="storeId" name="storeId" type="hidden"><br><div class="layui-form-item" style="margin-top: 15px;margin-left: 30px;"><br>    <label class="layui-form-label">店铺名</label><br>    <div class="layui-input-inline"><br>      <input type="text" name="storeName" id="storeName" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input"><br>    </div><br>   。。。。。。。省略其他输入框<br> <div class="layui-form-item"><br>    <div class="layui-input-block"><br>      <button class="layui-btn" lay-submit="" lay-filter="saveOrAdd">保存</button><br>      <button type="reset" class="layui-btn layui-btn-primary">重置</button><br>    </div><br>  </div><br></div></form>
-
-<p>form之中要注意的是lay-filter=”saveOrAdd”这个是绑定form操作的，还有一个是form的action可以不需要填写。</p>
-<script type="text/javascript">
-    layui.use([ 'form', 'layer', 'table','upload' ], function() {
-        var table = layui.table, $ = layui.$, form = layui.form,upload = layui.upload;
-        //编辑时候赋值
-        var urlParam = getParam('storeId');
-        log(urlParam)
-        if (!isEmpty(urlParam)) {
-            $.post("manager/store/getStoreById", {
-                "storeId" : urlParam
-            }, function(msg) {
-                var json = eval('(' + msg + ')');
-                for ( var key in json) {
-                    $("#" + key + "").val(json[key]);
-                }
-                $("#demo1").attr("src",json['pic']);
-                form.render('select');
-            });
-        }
-
-          //监听编辑或者添加-----之前说的重点lay-filter="saveOrAdd"
-          form.on('submit(saveOrAdd)', function(data){
-              var url = $("#storeId").val() == "" ?"manager/store/save" : "manager/store/update";
-              var datas=data.field;
-          $.ajax({
-            url:url,
-            data:datas,
-            type:"POST",
-            dataType:"json",
-            success:function(msg){
-                log(msg.code)
-                if(msg.code==0){
-                   //因为我的这个页面是添加或编辑页面  是通过layer.open出来的 所以parent.layer.close(index); 
-                   //你们的可以自行
-                    var index = parent.layer.getFrameIndex(window.name);  //获取当前弹窗索引index
-                    layer.msg('修改成功...', { icon: 6 });
-                    parent.layer.close(index); //返回成功 关闭当前弹窗
-                    window.parent.location.reload();//父页面刷新
-                }else{
-                    layer.msg('修改失败', { icon: 5 });
-                }
-            },
-            error:function(error){
-                layer.msg('系统异常！请联系管理员', { icon: 5 });
-            }
-        });
-           //***********重点中的重点********************
-            return false;
-            //**********重点中的重点*********************
-          });
-    });
-</script>
-
-
-
-<blockquote>
-<p>form表单中的重点中的重点 ：ajax执行后一定要 return false; 否则就会遇到事件不走自定义ajax的情况。这是初学者最容易忽略的地方。</p>
-</blockquote>
-</blockquote>
-          
+<p><table class="layui-hide" id="test" lay-filter="table"></table>‘<br></p></blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017/07/10/layui表格（table）操作与form操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
