@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+
+
+  
+
+ 
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content=",," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="页面首次进入不使用Ajax获取信息，需要下拉加载时，使用layui实现下拉加载更多 js代码">
+<meta name="keywords" content="layui,下拉加载">
+<meta property="og:type" content="website">
+<meta property="og:title" content="使用layui实现下拉加载更多">
+<meta property="og:url" content="https://github.com/dandan98/blog/word/使用layui实现下拉加载更多.html">
+<meta property="og:site_name" content="闫丹丹的博客">
+<meta property="og:description" content="页面首次进入不使用Ajax获取信息，需要下拉加载时，使用layui实现下拉加载更多 js代码">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-27T12:41:49.743Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用layui实现下拉加载更多">
+<meta name="twitter:description" content="页面首次进入不使用Ajax获取信息，需要下拉加载时，使用layui实现下拉加载更多 js代码">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '闫丹丹'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/dandan98/blog/word/使用layui实现下拉加载更多.html"/>
+
+
+
+
+
+  <title>使用layui实现下拉加载更多 | 闫丹丹的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/dandan98/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">闫丹丹的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/blog/categories/项目经历" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />
+            
+            项目经历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-info">
+          <a href="/blog/info" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            基本信息
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-word">
+          <a href="/blog/categories/随笔" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-technology">
+          <a href="/blog/categories/学习笔记" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            学习笔记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">使用layui实现下拉加载更多</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>页面首次进入不使用Ajax获取信息，需要下拉加载时，使用layui实现下拉加载更多</p>
+<h5 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h5><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">var list = new Array(&apos;article&apos;,&apos;user&apos;);</span><br><span class="line">   list[&apos;article&apos;] = new Array(&apos;name&apos;,&apos;time&apos;,&apos;tag&apos;);</span><br><span class="line">   list[&apos;article&apos;][&apos;time&apos;] = new Array();</span><br><span class="line"></span><br><span class="line">   list[&apos;user&apos;] = new Array(&apos;username&apos;);</span><br><span class="line">   list[&apos;article&apos;][&apos;name&apos;] = new Array(&apos;诗词歌赋&apos;,&apos;饮食文化&apos;,&apos;地理科学&apos;,&apos;冬天的小秘诀&apos;,&apos;是什么让程序员成了一份苦逼的工作&apos;,&apos;锻炼使人快乐&apos;,&apos;学习使人痛苦&apos;,&apos;美丽的小姐姐&apos;,&apos;校园大爆炸&apos;,&apos;胡歌最新力作：猎场&apos;);</span><br><span class="line">   for(var i = 0 ; i &lt; 10; i++)&#123;</span><br><span class="line">       list[&apos;article&apos;][&apos;time&apos;][i] = &apos;2017-11-2&apos; + i + &apos; &apos; + Math.floor(Math.random() * 24) + &apos;:&apos; + Math.floor(Math.random() * 60) + &apos;:&apos; + Math.floor(Math.random() * 60);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   list[&apos;article&apos;][&apos;tag&apos;] = new Array(&apos;诗词&apos;,&apos;饮食&apos;,&apos;科学&apos;,&apos;校园生活&apos;,&apos;程序员&apos;,&apos;健身&apos;,&apos;学习&apos;,&apos;小姐姐&apos;,&apos;校园生活&apos;,&apos;胡歌&apos;);</span><br><span class="line">   list[&apos;user&apos;][&apos;username&apos;] = new Array(&apos;蜡笔小新&apos;,&apos;樱桃小丸子&apos;,&apos;黑崎一护&apos;,&apos;漩涡鸣人&apos;,&apos;佐助&apos;,&apos;卡卡罗特&apos;,&apos;贝吉塔&apos;,&apos;悟饭&apos;,&apos;孙悟空&apos;,&apos;特兰克斯&apos;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   layui.use(&apos;flow&apos;, function()&#123;</span><br><span class="line">       var $ = layui.jquery, //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。</span><br><span class="line">           flow = layui.flow;</span><br><span class="line"></span><br><span class="line">       flow.load(&#123;</span><br><span class="line">           elem: &apos;#load_more&apos;, //流加载容器</span><br><span class="line">           done: function(page, next)&#123; //执行下一页的回调</span><br><span class="line"></span><br><span class="line">               //模拟数据插入</span><br><span class="line">               setTimeout(function()&#123;</span><br><span class="line">                   var lis = [];</span><br><span class="line">                   </span><br><span class="line">                   for(var i = 0; i &lt; 5; i++)&#123;</span><br><span class="line">                       number = (page-1) * 5 + i ;</span><br><span class="line">                       lis.push(&apos;&apos;+</span><br><span class="line">                           &apos;&lt;ul class=&quot;essay row&quot;&gt;&apos; +</span><br><span class="line">                           &apos;&lt;li class=&quot;col-xs-3 essayImg&quot;&gt;&apos; +</span><br><span class="line">                           &apos;&lt;img class=&quot;articleImg&quot; src=&quot;&apos;+CONST[&apos;IMG&apos;]+&apos;/fengmian&apos;+ number +&apos;.jpg&quot;&gt;&apos; +</span><br><span class="line">                           &apos;&lt;/li&gt;&apos; +</span><br><span class="line">                           &apos;&lt;li class=&quot;cox-xs-9&quot;&gt;&apos; +</span><br><span class="line">                           &apos;&lt;a&gt;&lt;h3 class=&quot;articleName&quot;&gt;&apos; + list[&quot;article&quot;][&quot;name&quot;][number] + &apos;&lt;/h3&gt;&lt;/a&gt;&apos; +</span><br><span class="line">                           &apos;&lt;p class=&quot;author_tag&quot;&gt;&apos; +</span><br><span class="line">                           &apos;&lt;a&gt;&apos; +</span><br><span class="line">                           &apos;&lt;img src=&quot;&apos;+CONST[&apos;IMG&apos;]+&apos;/touxiang0&apos;+ number +&apos;.jpg&quot;&gt;&apos; +</span><br><span class="line">                           &apos;&lt;span class=&quot;authorName&quot;&gt;&apos; + list[&quot;user&quot;][&quot;username&quot;][number] + &apos;&lt;/span&gt;&apos; +</span><br><span class="line">                           &apos;&lt;/a&gt;&apos; +</span><br><span class="line">                           &apos;&lt;em&gt;&lt;span&gt;&apos; + list[&quot;article&quot;][&quot;time&quot;][number] + &apos;&lt;/span&gt;&lt;/em&gt;&apos; +</span><br><span class="line">                           &apos;&lt;span&gt;&apos; +</span><br><span class="line">                           &apos;&lt;span class=&quot;breadcrumb a-border&quot;&gt;&apos; +</span><br><span class="line">                           &apos;&lt;a class=&quot;articleTag&quot; style=&quot;border:none;&quot;&gt;&apos; + list[&quot;article&quot;][&quot;tag&quot;][number] + &apos;&lt;/a&gt;&apos; +</span><br><span class="line">                           &apos;&lt;/span&gt;&apos; +</span><br><span class="line">                           &apos;&lt;/span&gt;&apos; +</span><br><span class="line">                           &apos;&lt;/p&gt;&apos; +</span><br><span class="line">                           &apos;&lt;/li&gt;&apos; +</span><br><span class="line">                           &apos;&lt;/ul&gt;&apos;);</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页</span><br><span class="line">                   //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多</span><br><span class="line">                   next(lis.join(&apos;&apos;), page &lt; 2); //假设总页数为 3 第一页主动加载</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">               &#125;, 1500);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;essayContent&quot;&gt;</span><br><span class="line">            &lt;%</span><br><span class="line">                HashMap&lt;String, Object&gt; hashMap = ArticleListsServlet.askIndexList();</span><br><span class="line">                List&lt;ArticleItem&gt; articleItemList = (List&lt;ArticleItem&gt;)hashMap.get(&quot;list&quot;);</span><br><span class="line">                int totolNum = (int)hashMap.get(&quot;dataNum&quot;);</span><br><span class="line"></span><br><span class="line">            %&gt;</span><br><span class="line">            &lt;%for(int i = 0; i &lt; articleItemList.size() ;i++) &#123;%&gt;</span><br><span class="line">            &lt;ul class=&quot;essay row&quot; &gt;</span><br><span class="line">                &lt;li class=&quot;col-xs-3 essayImg&quot;&gt;</span><br><span class="line">                    &lt;img class=&quot;articleImg&quot; src=&quot;&lt;%=essayImg[i]%&gt;&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">                &lt;li class=&quot;cox-xs-9&quot;&gt;</span><br><span class="line">                    &lt;a&gt;&lt;h3 class=&quot;articleName&quot; onclick=&quot;article(&lt;%=articleItemList.get(i).getArticleIC()%&gt;)&quot;&gt;&lt;%=articleItemList.get(i).getArticleTitle()%&gt;&lt;/h3&gt;&lt;/a&gt;</span><br><span class="line">                    &lt;p class=&quot;author_tag&quot;&gt;</span><br><span class="line">                        &lt;a&gt;</span><br><span class="line">                            &lt;img src=&quot;&lt;%=authorImg[i]%&gt;&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;authorName&quot; onclick=&quot;OwnCenter(&lt;%=articleItemList.get(i).getUserIC()%&gt;)&quot;&gt;&lt;%=articleItemList.get(i).getUserNickName()%&gt;&lt;/span&gt;</span><br><span class="line">                        &lt;/a&gt;</span><br><span class="line">                        &lt;em&gt;&lt;span&gt;&lt;/span&gt;&lt;/em&gt;</span><br><span class="line">                        &lt;span&gt;</span><br><span class="line">                               &lt;span class=&quot;breadcrumb a-border&quot; &gt;</span><br><span class="line">                                    &lt;span class=&quot;articleTag&quot; style=&quot;border:none;&quot; onclick=&quot;SearchPage(&apos;&lt;%=articleItemList.get(i).getArticleTag()%&gt;&apos;)&quot;&gt;</span><br><span class="line">                                      &lt;%=articleItemList.get(i).getArticleTag()%&gt;&lt;/span&gt;</span><br><span class="line">                               &lt;/span&gt;</span><br><span class="line">                            &lt;span class=&quot;breadcrumb a-border&quot; &gt;</span><br><span class="line">                              &lt;span class=&quot;articleTag&quot; style=&quot;border:none;&quot;&gt;</span><br><span class="line">                                &lt;%=articleItemList.get(i).getArticleDomain()%&gt;&lt;/span&gt;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                          &lt;/span&gt;</span><br><span class="line">                    &lt;/p&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">            &lt;%&#125;%&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;site-demo-flow&quot; id=&quot;load_more&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/photo.jpg"
+                alt="闫丹丹" />
+            
+              <p class="site-author-name" itemprop="name">闫丹丹</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#js代码"><span class="nav-number">1.</span> <span class="nav-text">js代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#html代码"><span class="nav-number">2.</span> <span class="nav-text">html代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">闫丹丹 E-mail: yandandan0111@163.com</span>
+
+  
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script src="/js/src/love.js" type="text/javascript" charset="utf-8" async defer></script>
